@@ -1704,8 +1704,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 369.24597, y: 166.85931}
-  m_SizeDelta: {x: 506.7835, y: 297.0148}
+  m_AnchoredPosition: {x: 571.6177, y: -337.26}
+  m_SizeDelta: {x: 697.9837, y: 405.49}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!61 &1139350872
 BoxCollider2D:
@@ -1731,7 +1731,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 502.35757, y: 294.54712}
+  m_Size: {x: 698.4009, y: 411.6549}
   m_EdgeRadius: 0
 --- !u!1001 &1141313117
 PrefabInstance:
@@ -1921,8 +1921,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -406.73932, y: -33.314564}
-  m_SizeDelta: {x: 441.7138, y: 225.0957}
+  m_AnchoredPosition: {x: -426.37, y: -33.0266}
+  m_SizeDelta: {x: 852.75, y: 632.9892}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!61 &1161106749
 BoxCollider2D:
@@ -1948,7 +1948,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 433.007, y: 220.48767}
+  m_Size: {x: 848.3402, y: 639.5365}
   m_EdgeRadius: 0
 --- !u!1 &1280136420
 GameObject:
@@ -2074,7 +2074,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: ff00f540baf8d9749a509641b53890e7, type: 3}
+  m_Sprite: {fileID: 21300000, guid: c67c2ffa4c5f2a3459ba99c9d40f9344, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -2233,7 +2233,6 @@ MonoBehaviour:
   inPlayingRoom: 0
   inKitchen: 0
   inMassageRoom: 0
-  tempNumber: 0
   ChildrenEnergyBar: {fileID: 0}
   ChildrenHappinessBar: {fileID: 0}
   ChildrenKnowledgeBar: {fileID: 0}
