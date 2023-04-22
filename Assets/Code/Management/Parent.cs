@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 
 public class Parent : MonoBehaviour
@@ -16,13 +17,35 @@ public class Parent : MonoBehaviour
 
     public static Parent instance;
 
+    public GameObject emailTitle;
+    public GameObject emailTxt;
+
     void Awake()
     {
         instance = this;
     }
 
+    void Start()
+    {
+        
+    }
+
     void Update()
     {
+        if (SceneManager.GetActiveScene().name.Equals("WorkScene"))
+        {
+            if (emailTitle == null)
+            {
+                emailTitle = GameObject.FindGameObjectWithTag("EmailTitle");
+                emailTitle.SetActive(false);
+            }
+
+            if (emailTxt == null)
+            {
+                emailTxt = GameObject.FindGameObjectWithTag("EmailText");
+            }
+        }
+
         if (parentHappinessLevel >= 100)
         {
             parentHappinessLevel = 100;
@@ -70,18 +93,30 @@ public class Parent : MonoBehaviour
 
     public void Work()
     {
-        if (currentEmailCompleteness <= 99)
+        if (parentEnergyLevel >= 3)
         {
-            if (Input.anyKeyDown)
+            if (currentEmailCompleteness <= 99)
             {
-                currentEmailCompleteness += 5;
+                emailTitle.SetActive(true);
+
+                if (Input.anyKeyDown)
+                {
+                    currentEmailCompleteness += 5;
+                    RectTransform emailTxtTransform = emailTxt.GetComponent<RectTransform>();
+                    emailTxt.transform.position = new Vector3(emailTxt.transform.position.x + (15.5f / 2), emailTxt.transform.position.y, emailTxt.transform.position.z);
+                    emailTxtTransform.sizeDelta = new Vector2(emailTxtTransform.sizeDelta.x + 15.5f, emailTxtTransform.sizeDelta.y);
+                }
             }
-        }
-        else
-        {
-            MessageEffect(currentEmail.EmailType);
-            emailsCompleted++;
-            GenerateNewEmail();
+            else
+            {
+                MessageEffect(currentEmail.EmailType);
+                emailsCompleted++;
+                emailTitle.SetActive(false);
+                RectTransform emailTxtTransform = emailTxt.GetComponent<RectTransform>();
+                emailTxt.transform.position = new Vector3(emailTxt.transform.position.x - 155, emailTxt.transform.position.y, emailTxt.transform.position.z);
+                emailTxtTransform.sizeDelta = new Vector2(0, emailTxtTransform.sizeDelta.y);
+                GenerateNewEmail();
+            }
         }
     }
 
