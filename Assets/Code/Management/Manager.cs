@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Manager : MonoBehaviour
 {
@@ -12,6 +13,19 @@ public class Manager : MonoBehaviour
     public List<Room> rooms = new List<Room>(); //All types of Rooms
 
     public static Manager instance;
+
+    [SerializeField]
+    public Slider ChildrenEnergyBar;
+    [SerializeField]
+    public Slider ChildrenHappinessBar;
+    [SerializeField]
+    public Slider ChildrenKnowledgeBar;
+    [SerializeField]
+    public Slider ChildrenProgressBar;
+    [SerializeField]
+    public Slider ParentEnergyBar;
+    [SerializeField]
+    public Slider ParentHappinessBar;
 
     void Awake()
     {
@@ -28,13 +42,22 @@ public class Manager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+        getValue();
     }
 
     // Update is called once per frame
     void Update()
     {
-            
+        if (ParentEnergyBar == null || ParentHappinessBar == null)
+        {
+            ParentEnergyBar = GameObject.FindGameObjectWithTag("ParentEnergyBar").GetComponent<Slider>();
+            ParentHappinessBar = GameObject.FindGameObjectWithTag("ParentHappinessBar").GetComponent<Slider>();
+            ChildrenEnergyBar = GameObject.FindGameObjectWithTag("ChildrenEnergyBar").GetComponent<Slider>();
+            ChildrenHappinessBar = GameObject.FindGameObjectWithTag("ChildrenHappinessBar").GetComponent<Slider>();
+            ChildrenKnowledgeBar = GameObject.FindGameObjectWithTag("ChildrenKnowledgeBar").GetComponent<Slider>();
+            ChildrenProgressBar = GameObject.FindGameObjectWithTag("ChildrenProgressBar").GetComponent<Slider>();
+            getValue();
+        }
     }
 
     public void PopulateEffects()
@@ -47,7 +70,7 @@ public class Manager : MonoBehaviour
 
     public void PopulatePeople()
     {
-        people.Add(new Person(0, new Effect[] {effects[0], effects[1]})); //Parent
+        people.Add(new Person(0, new Effect[] { effects[0], effects[1] })); //Parent
         people.Add(new Person(1, effects.ToArray())); //Child
     }
 
@@ -62,18 +85,18 @@ public class Manager : MonoBehaviour
 
     public void PopulateActivities()
     {
-        activities.Add(new Activity(0, "Watch tv", new Effect[]{effects[0], effects[1] }));
+        activities.Add(new Activity(0, "Watch tv", new Effect[] { effects[0], effects[1] }));
         activities.Add(new Activity(1, "Socializing", new Effect[] { effects[0] }));
         activities.Add(new Activity(2, "Rest with kids", new Effect[] { effects[0], effects[1] }));
         activities.Add(new Activity(3, "Resting", new Effect[] { effects[0], effects[1] }));
-        activities.Add(new Activity(4, "Playing with kids", new Effect[]{effects[0], effects[1]}));
+        activities.Add(new Activity(4, "Playing with kids", new Effect[] { effects[0], effects[1] }));
         activities.Add(new Activity(5, "Teaching", new Effect[] { effects[0] }));
         activities.Add(new Activity(6, "Recycling", new Effect[] { effects[0] }));
-        activities.Add(new Activity(7, "Cooking", new Effect[]{ effects[0]}));
+        activities.Add(new Activity(7, "Cooking", new Effect[] { effects[0] }));
         activities.Add(new Activity(8, "Cleaning", new Effect[] { effects[0] }));
-        activities.Add(new Activity(9, "Massage", new Effect[]{effects[0], effects [1]}));
-        
-        
+        activities.Add(new Activity(9, "Massage", new Effect[] { effects[0], effects[1] }));
+
+
     }
 
     public void PopulateEmails()
@@ -83,13 +106,29 @@ public class Manager : MonoBehaviour
         emails.Add(new Email(2)); //Neutral Email
     }
 
-   public void PopulateRooms()
+    public void PopulateRooms()
     {
         rooms.Add(new Room(0, "Bedroom", new Activity[] { activities[3] }));
         rooms.Add(new Room(1, "Living Room", new Activity[] { activities[0], activities[1], activities[2], activities[3] }));
         rooms.Add(new Room(2, "Playing Room", new Activity[] { activities[4], activities[5] }));
         rooms.Add(new Room(3, "Kitchen", new Activity[] { activities[6], activities[7], activities[8] }));
-        rooms.Add(new Room(4, "Massage Room", new Activity[] { activities[9]}));
+        rooms.Add(new Room(4, "Massage Room", new Activity[] { activities[9] }));
 
+    }
+
+    public void getValue()
+    {
+        if (ChildrenEnergyBar)
+        { ChildrenEnergyBar.value = Child.instance.childEnergyLevel / 100; }
+        if (ChildrenHappinessBar)
+        { ChildrenHappinessBar.value = Child.instance.childHappinessLevel / 100; }
+        if (ChildrenKnowledgeBar)
+        { ChildrenKnowledgeBar.value = Child.instance.childKnowledgeLevel / 100; }
+        if (ChildrenProgressBar)
+        { ChildrenProgressBar.value = Child.instance.childProgressionLevel / 100;}
+        if (ParentEnergyBar)
+        { ParentEnergyBar.value = Parent.instance.parentEnergyLevel / 100;}
+        if (ParentHappinessBar)
+        { ParentHappinessBar.value = Parent.instance.parentHappinessLevel / 100;}
     }
 }

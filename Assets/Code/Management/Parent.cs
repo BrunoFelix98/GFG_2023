@@ -115,6 +115,7 @@ public class Parent : MonoBehaviour
                 RectTransform emailTxtTransform = emailTxt.GetComponent<RectTransform>();
                 emailTxt.transform.position = new Vector3(emailTxt.transform.position.x - 155, emailTxt.transform.position.y, emailTxt.transform.position.z);
                 emailTxtTransform.sizeDelta = new Vector2(0, emailTxtTransform.sizeDelta.y);
+                Manager.instance.getValue();
                 GenerateNewEmail();
             }
         }

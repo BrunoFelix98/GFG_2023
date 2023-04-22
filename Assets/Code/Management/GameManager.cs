@@ -31,6 +31,8 @@ public class GameManager : MonoBehaviour
         {
             SceneManager.LoadScene("WorkScene");
 
+            ResetSlides();
+
             Parent.instance.parentHappinessLevel = Manager.instance.people[1].Effects[0].EffectLevel;
             Parent.instance.parentEnergyLevel = Manager.instance.people[1].Effects[1].EffectLevel;
 
@@ -49,6 +51,7 @@ public class GameManager : MonoBehaviour
         {
             SceneManager.LoadScene("HouseScene");
             SceneManager.UnloadSceneAsync("WorkScene");
+            ResetSlides();
         }
     }
 
@@ -63,6 +66,7 @@ public class GameManager : MonoBehaviour
 
             ResetParent();
             ResetChild();
+            ResetSlides();
         }
         else if (scene.name.Equals("HouseScene"))
         {
@@ -71,6 +75,7 @@ public class GameManager : MonoBehaviour
 
             ResetParent();
             ResetChild();
+            ResetSlides();
         }
     }
 
@@ -84,6 +89,7 @@ public class GameManager : MonoBehaviour
             SceneManager.UnloadSceneAsync("HouseScene");
 
             Child.instance.childProgressionLevel = (Child.instance.childProgressionLevel + Child.instance.childKnowledgeLevel + 3);
+            ResetSlides();
         }
     }
 
@@ -104,6 +110,12 @@ public class GameManager : MonoBehaviour
         Child.instance.childKnowledgeLevel = 0;
         Child.instance.childProgressionLevel = 0;
         Child.instance.eventTimer = 0;
+    }
+
+    public void ResetSlides()
+    {
+        Manager.instance.ParentEnergyBar = null;
+        Manager.instance.ParentHappinessBar = null;
     }
 
     public void GameEnded()
