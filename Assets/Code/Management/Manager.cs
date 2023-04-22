@@ -53,12 +53,12 @@ public class Manager : MonoBehaviour
 
     public void PopulateMessages()
     {
-        messages.Add(new Message(0, "Hello", 2));
-        messages.Add(new Message(1, "My name is...", 2));
-        messages.Add(new Message(2, "Goodbye", 0));
-        messages.Add(new Message(3, "Greetings", 1));
-        messages.Add(new Message(4, "Your child has the gay", 0));
-        messages.Add(new Message(5, "Cancer has killed your family", 0));
+        messages.Add(new Message(0, "title1", "desc1", 2, null));
+        messages.Add(new Message(1, "title2", "desc2", 2, null));
+        messages.Add(new Message(2, "title3", "desc3", 0, null));
+        messages.Add(new Message(3, "title4", "desc4", 1, null));
+        messages.Add(new Message(4, "title5", "desc5", 0, null));
+        messages.Add(new Message(5, "title6", "desc6", 0, null));
     }
 
     public void PopulateActivities()
@@ -80,8 +80,8 @@ public class Manager : MonoBehaviour
     public void PopulateEmails()
     {
         emails.Add(new Email(0)); //Bad email
-        emails.Add(new Email(1)); //GoodEmail
-        emails.Add(new Email(2)); //NeutralEmail
+        emails.Add(new Email(1)); //Good Email
+        emails.Add(new Email(2)); //Neutral Email
     }
 
    public void PopulateRooms()

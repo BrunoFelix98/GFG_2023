@@ -8,9 +8,13 @@ public class Message
     [SerializeField]
     private int messageID;
     [SerializeField]
-    private string text;
+    private string title;
+    [SerializeField]
+    private string description;
     [SerializeField]
     private int messageType; //0 = bad, 1 = good, 2 = neutral
+    [SerializeField]
+    private Sprite msgImage;
 
     public int MessageID
     {
@@ -18,10 +22,16 @@ public class Message
         set => messageID = value;
     }
 
-    public string Text
+    public string Title
     {
-        get => text;
-        set => text = value;
+        get => title;
+        set => title = value;
+    }
+
+    public string Description
+    {
+        get => description;
+        set => description = value;
     }
 
     public int MessageType
@@ -30,10 +40,18 @@ public class Message
         set => messageType = value;
     }
 
-    public Message(int messageID, string message, int messageType)
+    public Sprite MsgImage
+    {
+        get => msgImage;
+        set => msgImage = value;
+    }
+
+    public Message(int messageID, string title, string description, int messageType, Sprite msgImage)
     {
         MessageID = messageID;
-        Text = message;
+        Title = title;
+        Description = description;
         MessageType = messageType;
+        MsgImage = msgImage;
     }
 }
