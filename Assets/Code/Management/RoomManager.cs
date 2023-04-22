@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class RoomManager : MonoBehaviour
 {
@@ -12,10 +13,19 @@ public class RoomManager : MonoBehaviour
 
     public int tempNumber;
 
+    private static Slider ChildrenEnergyBar;
+    private static Slider ChildrenHappinessBar;
+    private static Slider ChildrenKnowledgeBar;
+    private static Slider ChildrenProgressBar;
+    private static Slider ParentEnergyBar;
+    private static Slider ParentHappinessBar;
+
     // Start is called before the first frame update
     void Start()
     {
         tempNumber = 10;
+        ChildrenEnergyBar = GameObject.FindGameObjectWithTag("ChildrenEnergyBar").GetComponent<Slider>();
+        ChildrenHappinessBar = GameObject.FindGameObjectWithTag("ChildrenHappinessBar").GetComponent<Slider>();
     }
 
     // Update is called once per frame
