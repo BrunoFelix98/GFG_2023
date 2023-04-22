@@ -9,6 +9,7 @@ public class Manager : MonoBehaviour
     public List<Activity> activities = new List<Activity>(); //All types of activities
     public List<Message> messages = new List<Message>(); //All types of messages
     public List<Email> emails = new List<Email>(); //All types of emails
+    public List<Room> rooms = new List<Room>(); //All types of Rooms
 
     public static Manager instance;
 
@@ -16,8 +17,10 @@ public class Manager : MonoBehaviour
     {
         PopulateEffects();
         PopulatePeople();
+        PopulateActivities();
         PopulateMessages();
         PopulateEmails();
+        PopulateRooms();
 
         instance = this;
     }
@@ -64,7 +67,7 @@ public class Manager : MonoBehaviour
         activities.Add(new Activity(1, "Socializing", new Effect[] { effects[0] }));
         activities.Add(new Activity(2, "Rest with kids", new Effect[] { effects[0], effects[1] }));
         activities.Add(new Activity(3, "Resting", new Effect[] { effects[0], effects[1] }));
-        activities.Add(new Activity(4, "Playing with kids", new Effect[]{effects[0]}));
+        activities.Add(new Activity(4, "Playing with kids", new Effect[]{effects[0], effects[1]}));
         activities.Add(new Activity(5, "Teaching", new Effect[] { effects[0] }));
         activities.Add(new Activity(6, "Recycling", new Effect[] { effects[0] }));
         activities.Add(new Activity(7, "Cooking", new Effect[]{ effects[0]}));
@@ -81,5 +84,13 @@ public class Manager : MonoBehaviour
         emails.Add(new Email(2)); //NeutralEmail
     }
 
-   
+   public void PopulateRooms()
+    {
+        rooms.Add(new Room(0, "Bedroom", new Activity[] { activities[3] }));
+        rooms.Add(new Room(1, "Living Room", new Activity[] { activities[0], activities[1], activities[2], activities[3] }));
+        rooms.Add(new Room(2, "Playing Room", new Activity[] { activities[4], activities[5] }));
+        rooms.Add(new Room(3, "Kitchen", new Activity[] { activities[6], activities[7], activities[8] }));
+        rooms.Add(new Room(4, "Massage Room", new Activity[] { activities[9]}));
+
+    }
 }
