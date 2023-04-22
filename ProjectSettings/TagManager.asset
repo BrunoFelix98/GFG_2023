@@ -6,12 +6,17 @@ TagManager:
   tags:
   - Manager
   - Room
+<<<<<<< Updated upstream
   - ChildrenEnergyBar
   - ChildrenHappinessBar
   - ChildrenKnowledgeBar
   - ChildrenProgressBar
   - ParentEnergyBar
   - ParentHappinessBar
+=======
+  - EmailTitle
+  - EmailText
+>>>>>>> Stashed changes
   layers:
   - Default
   - TransparentFX
