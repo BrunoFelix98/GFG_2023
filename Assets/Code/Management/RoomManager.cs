@@ -30,11 +30,15 @@ public class RoomManager : MonoBehaviour
 
     public void DoActivity(int activityNumber)
     {
+        activityNumber -= 1; //When we pass the temp number, we need to decrease 1 value to fit in array index
         if (inBedroom)
         {
             print("Bedroom Chosen");
 
             print(Manager.instance.rooms[0].Activities[activityNumber].ActivityName);
+
+            Child.instance.childEnergyLevel = 100;
+            Parent.instance.parentEnergyLevel = 100;
         }
 
         if (inLivingRoom)
@@ -42,6 +46,52 @@ public class RoomManager : MonoBehaviour
             print("Living room Chosen");
 
             print(Manager.instance.rooms[1].Activities[activityNumber].ActivityName);
+
+            switch (activityNumber) {
+                case 0: //Watch TV
+                    //Increase happiness of both
+                    Child.instance.childHappinessLevel += 3;
+                    Parent.instance.parentHappinessLevel += 3;
+
+                    //Decrease energy of both
+                    Child.instance.childEnergyLevel -= 3;
+                    Parent.instance.parentEnergyLevel -= 3;
+
+                    print("Watching TV");
+                    break;
+                case 1: //Socializing
+                    //Increase happiness of both
+                    Child.instance.childHappinessLevel += 3;
+                    Parent.instance.parentHappinessLevel += 3;
+
+                    //Decrease energy of both
+                    Child.instance.childEnergyLevel -= 3;
+                    Parent.instance.parentEnergyLevel -= 3;
+
+                    print("Socializing");
+                    break;
+                case 2: //Rest with kids
+                    //Increase happiness of both
+                    Child.instance.childHappinessLevel += 3;
+                    Parent.instance.parentHappinessLevel += 3;
+
+                    //Increase energy of both
+                    Child.instance.childEnergyLevel += 3;
+                    Parent.instance.parentEnergyLevel += 3;
+
+                    print("Resting with kids");
+                    break;
+                case 3: //Resting
+                    //Increase happiness of parent
+                    Parent.instance.parentHappinessLevel += 3;
+
+                    //Increase energy of parent
+                    Parent.instance.parentEnergyLevel += 3;
+
+                    print("Resting");
+                    break;
+                default: break;
+            }
         }
 
         if (inPlayingRoom)
@@ -49,6 +99,28 @@ public class RoomManager : MonoBehaviour
             print("Playing room Chosen");
             
             print(Manager.instance.rooms[2].Activities[activityNumber].ActivityName);
+
+            switch(activityNumber)
+            {
+                case 1: //Playing with kids
+                    //Increase happiness of both
+                    Child.instance.childHappinessLevel += 3;
+                    Parent.instance.parentHappinessLevel += 3;
+
+                    //Decrease energy of both
+                    Child.instance.childEnergyLevel -= 3;
+                    Parent.instance.parentEnergyLevel -= 3;
+
+                    print("Playing with kids");
+                    break;
+                case 2: //Teaching
+                    //Increase knowledge of kid
+                    Child.instance.childKnowledgeLevel += 3;
+
+                    print("Teaching");
+                    break;
+                default : break;
+            }
         }
 
         if (inKitchen)
@@ -56,6 +128,37 @@ public class RoomManager : MonoBehaviour
             print("Kitchen Chosen");
 
             print(Manager.instance.rooms[3].Activities[activityNumber].ActivityName);
+
+            switch(activityNumber)
+            {
+                case 1: //Recycling
+                    //Increase knowledge of kid
+                    Child.instance.childKnowledgeLevel += 3;
+
+                    //Decrease energy of both
+                    Child.instance.childEnergyLevel -= 3;
+                    Parent.instance.parentEnergyLevel -= 3;
+
+                    print("Recycling");
+                    break;
+                case 2: //Cooking
+                    //Decrease energy of parent
+                    Parent.instance.parentEnergyLevel -= 3;
+
+                    print("Cooking");
+                    break;
+                case 3: //Cleaning
+                    //Increase knowledge of child
+                    Child.instance.childKnowledgeLevel += 3;
+
+                    //Decrease energy of both
+                    Child.instance.childEnergyLevel -= 3;
+                    Parent.instance.parentEnergyLevel -= 3;
+
+                    print("Cleaning");
+                    break;
+                default: break;
+            }
         }
 
         if (inMassageRoom)
@@ -63,6 +166,15 @@ public class RoomManager : MonoBehaviour
             print("Massage room Chosen");
 
             print(Manager.instance.rooms[4].Activities[activityNumber].ActivityName);
+
+            //Increase happiness of both
+            Child.instance.childHappinessLevel += 3;
+            Parent.instance.parentHappinessLevel += 3;
+            //Increase energy of both
+            Child.instance.childEnergyLevel += 3;
+            Parent.instance.parentEnergyLevel += 3;
+
+            print("Massage");
         }
     }
 
@@ -72,44 +184,44 @@ public class RoomManager : MonoBehaviour
         {
             print("Bedroom Chosen");
 
-            print(Manager.instance.rooms[0].Activities[0].ActivityName);
+            //print(Manager.instance.rooms[0].Activities[0].ActivityName);
         }
 
         if (inLivingRoom)
         {
             print("Living room Chosen");
 
-            for (int i = 0; i < Manager.instance.rooms[1].Activities.Length; i++)
-            {
-                print(Manager.instance.rooms[1].Activities[i].ActivityName);
-            }
+            //for (int i = 0; i < Manager.instance.rooms[1].Activities.Length; i++)
+            //{
+            //    print(Manager.instance.rooms[1].Activities[i].ActivityName);
+            //}
         }
 
         if (inPlayingRoom)
         {
             print("Playing room Chosen");
 
-            for (int i = 0; i < Manager.instance.rooms[2].Activities.Length; i++)
-            {
-                print(Manager.instance.rooms[2].Activities[i].ActivityName);
-            }
+            //for (int i = 0; i < Manager.instance.rooms[2].Activities.Length; i++)
+            //{
+            //    print(Manager.instance.rooms[2].Activities[i].ActivityName);
+            //}
         }
 
         if (inKitchen)
         {
             print("Kitchen Chosen");
 
-            for (int i = 0; i < Manager.instance.rooms[3].Activities.Length; i++)
-            {
-                print(Manager.instance.rooms[3].Activities[i].ActivityName);
-            }
+            //for (int i = 0; i < Manager.instance.rooms[3].Activities.Length; i++)
+            //{
+            //    print(Manager.instance.rooms[3].Activities[i].ActivityName);
+            //}
         }
 
         if (inMassageRoom)
         {
             print("Massage room Chosen");
 
-            print(Manager.instance.rooms[4].Activities[0].ActivityName);
+            //print(Manager.instance.rooms[4].Activities[0].ActivityName);
         }
     }
 }
