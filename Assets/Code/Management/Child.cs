@@ -8,10 +8,16 @@ public class Child : MonoBehaviour
     public float childHappinessLevel;
     public float childEnergyLevel;
     public float childKnowledgeLevel;
-    public float childMannersLevel;
     public float childProgressionLevel;
 
     public float eventTimer;
+
+    public static Child instance;
+
+    void Awake()
+    {
+        instance = this;
+    }
 
     // Start is called before the first frame update
     void Start()
@@ -22,9 +28,29 @@ public class Child : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(SceneManager.GetActiveScene().name.Equals("WorkScene"))
+        if (childHappinessLevel >= 100)
         {
-            if (eventTimer <= 60000)
+            childHappinessLevel = 100;
+        }
+
+        if (childHappinessLevel <= 0)
+        {
+            childHappinessLevel = 0;
+        }
+
+        if (childEnergyLevel >= 100)
+        {
+            childEnergyLevel = 100;
+        }
+
+        if (childEnergyLevel <= 0)
+        {
+            childEnergyLevel = 0;
+        }
+
+        if (SceneManager.GetActiveScene().name.Equals("WorkScene"))
+        {
+            if (eventTimer <= 11)
             {
                 eventTimer += Time.deltaTime;
             }
@@ -68,12 +94,7 @@ public class Child : MonoBehaviour
             }
         }
 
-        if (childProgressionLevel <= 20)
-        {
-            //Progression messages are always good, the amount of progression just dictates how much happiness the parent gets
-
-            SendGoodMessage(true);
-        }
+        SendGoodMessage(true);
     }
 
     public void SendGoodMessage(bool progMsg)
@@ -85,18 +106,26 @@ public class Child : MonoBehaviour
             if (childProgressionLevel <= 20)
             {
                 //happiness given is +5
+
+                Parent.instance.parentHappinessLevel += 5;
             }
             else if (childProgressionLevel <= 40)
             {
                 //happiness given is +8
+
+                Parent.instance.parentHappinessLevel += 8;
             }
             else if (childProgressionLevel <= 60)
             {
                 //happiness given is +11
+
+                Parent.instance.parentHappinessLevel += 11;
             }
             else if (childProgressionLevel <= 99)
             {
                 //happiness given is +14
+
+                Parent.instance.parentHappinessLevel += 14;
             }
             else
             {
@@ -107,15 +136,21 @@ public class Child : MonoBehaviour
         {
             //Generate a normal good message
         }
+
+        childHappinessLevel += 10;
+        childEnergyLevel--;
     }
 
     public void SendBadMessage()
     {
         //Generate UI for this message, when the parent opens the phone, it will take away happiness from them
+        childHappinessLevel -= 10;
+        childEnergyLevel--;
     }
 
     public void SendNeutralMessage()
     {
         //Generate UI for this message, when the parent opens the phone, it will not affect the parent
+        childEnergyLevel--;
     }
 }

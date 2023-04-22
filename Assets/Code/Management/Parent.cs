@@ -5,8 +5,8 @@ using UnityEngine.SceneManagement;
 
 public class Parent : MonoBehaviour
 {
-    public float currentHappinessLevel;
-    public float currentEnergyLevel;
+    public float parentHappinessLevel;
+    public float parentEnergyLevel;
     public float currentEmailCompleteness;
     public Email currentEmail;
 
@@ -23,11 +23,31 @@ public class Parent : MonoBehaviour
 
     void Update()
     {
+        if (parentHappinessLevel >= 100)
+        {
+            parentHappinessLevel = 100;
+        }
+
+        if (parentHappinessLevel <= 0)
+        {
+            parentHappinessLevel = 0;
+        }
+
+        if (parentEnergyLevel >= 100)
+        {
+            parentEnergyLevel = 100;
+        }
+
+        if (parentEnergyLevel <= 0)
+        {
+            parentEnergyLevel = 0;
+        }
+
         Scene scene = SceneManager.GetActiveScene();
         if (scene.name.Equals("WorkScene"))
         {
             //Handle workday stuff
-            if (timeOfDay <= 60000)
+            if (timeOfDay <= 60)
             {
                 Work();
                 timeOfDay += Time.deltaTime;
@@ -68,7 +88,7 @@ public class Parent : MonoBehaviour
     //Generate a new email
     public void GenerateNewEmail()
     {
-        if (currentEnergyLevel >= 70) //If the parent currently has a lot of energy, they have a 20% chance of recieving a bad email
+        if (parentEnergyLevel >= 70) //If the parent currently has a lot of energy, they have a 20% chance of recieving a bad email
         {
             int rand = Random.Range(0, 100);
 
@@ -81,7 +101,7 @@ public class Parent : MonoBehaviour
                 currentEmail = Manager.instance.emails[2];
             }
         }
-        else if(currentEnergyLevel <= 40) //If the parent currently doesnt not have a lot of energy, they have a 20% chance of recieving a good email
+        else if(parentEnergyLevel <= 40) //If the parent currently doesnt not have a lot of energy, they have a 20% chance of recieving a good email
         {
             int rand = Random.Range(0, 100);
 
@@ -108,15 +128,15 @@ public class Parent : MonoBehaviour
         switch (messageType)
         {
             case 0: //Case bad message
-                currentHappinessLevel -= 5; //Decrease happiness
-                currentEnergyLevel -= 5; //Decrease energy
+                parentHappinessLevel -= 15; //Decrease happiness
+                parentEnergyLevel -= 3; //Decrease energy
                 break;
             case 1: //Case good message
-                currentHappinessLevel += 5; //Increase happiness
-                currentEnergyLevel -= 5; //Decrease energy
+                parentHappinessLevel += 5; //Increase happiness
+                parentEnergyLevel -= 3; //Decrease energy
                 break;
             case 2: //Case neutral message
-                currentEnergyLevel -= 5; //Decrease energy
+                parentEnergyLevel -= 3; //Decrease energy
                 break;
             default:
                 break;

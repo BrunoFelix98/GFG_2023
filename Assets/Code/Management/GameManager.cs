@@ -31,8 +31,11 @@ public class GameManager : MonoBehaviour
         {
             SceneManager.LoadScene("WorkScene");
 
-            Parent.instance.currentHappinessLevel = Manager.instance.people[1].Effects[0].EffectLevel;
-            Parent.instance.currentEnergyLevel = Manager.instance.people[1].Effects[1].EffectLevel;
+            Parent.instance.parentHappinessLevel = Manager.instance.people[1].Effects[0].EffectLevel;
+            Parent.instance.parentEnergyLevel = Manager.instance.people[1].Effects[1].EffectLevel;
+
+            Child.instance.childHappinessLevel = Manager.instance.people[1].Effects[0].EffectLevel / 2;
+            Child.instance.childEnergyLevel = Manager.instance.people[1].Effects[1].EffectLevel / 2;
 
             Parent.instance.GenerateNewEmail();
         }
@@ -59,6 +62,7 @@ public class GameManager : MonoBehaviour
             SceneManager.UnloadSceneAsync("WorkScene");
 
             ResetParent();
+            ResetChild();
         }
         else if (scene.name.Equals("HouseScene"))
         {
@@ -66,6 +70,7 @@ public class GameManager : MonoBehaviour
             SceneManager.UnloadSceneAsync("HouseScene");
 
             ResetParent();
+            ResetChild();
         }
     }
 
@@ -77,35 +82,28 @@ public class GameManager : MonoBehaviour
         {
             SceneManager.LoadScene("WorkScene");
             SceneManager.UnloadSceneAsync("HouseScene");
+
+            Child.instance.childProgressionLevel = (Child.instance.childProgressionLevel + Child.instance.childKnowledgeLevel + 3);
         }
     }
 
     public void ResetParent()
     {
-        Parent.instance.currentHappinessLevel = 0;
-        Parent.instance.currentEnergyLevel = 0;
+        Parent.instance.parentHappinessLevel = 0;
+        Parent.instance.parentEnergyLevel = 0;
         Parent.instance.currentEmailCompleteness = 0;
         Parent.instance.currentEmail = null;
         Parent.instance.timeOfDay = 0;
         Parent.instance.emailsCompleted = 0;
     }
 
-    public void SendMessageToParent()
+    public void ResetChild()
     {
-        if (messageTimer <= 60000)
-        {
-            messageTimer += Time.deltaTime;
-        }
-        else
-        {
-            GenerateMessage();
-            messageTimer = 0;
-        }
-    }
-
-    public void GenerateMessage()
-    {
-        //Generate a message based on the childs' progression, happiness and knowledge
+        Child.instance.childHappinessLevel = 0;
+        Child.instance.childEnergyLevel = 0;
+        Child.instance.childKnowledgeLevel = 0;
+        Child.instance.childProgressionLevel = 0;
+        Child.instance.eventTimer = 0;
     }
 
     public void GameEnded()

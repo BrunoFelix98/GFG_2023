@@ -39,8 +39,7 @@ public class Manager : MonoBehaviour
         effects.Add(new Effect(0, "Happiness", 100.0f));
         effects.Add(new Effect(1, "Energy", 100.0f));
         effects.Add(new Effect(2, "Knowledge", 0.0f));
-        effects.Add(new Effect(3, "Manners", 0.0f));
-        effects.Add(new Effect(4, "Progression", 0.0f));
+        effects.Add(new Effect(3, "Progression", 0.0f));
     }
 
     public void PopulatePeople()
@@ -61,7 +60,18 @@ public class Manager : MonoBehaviour
 
     public void PopulateActivities()
     {
-        //Template: activities.Add(new Activity(0, "Watch tv", new Effect[]{effects[0]}));
+        activities.Add(new Activity(0, "Watch tv", new Effect[]{effects[0], effects[1] }));
+        activities.Add(new Activity(1, "Socializing", new Effect[] { effects[0] }));
+        activities.Add(new Activity(2, "Rest with kids", new Effect[] { effects[0], effects[1] }));
+        activities.Add(new Activity(3, "Resting", new Effect[] { effects[0], effects[1] }));
+        activities.Add(new Activity(4, "Playing with kids", new Effect[]{effects[0]}));
+        activities.Add(new Activity(5, "Teaching", new Effect[] { effects[0] }));
+        activities.Add(new Activity(6, "Recycling", new Effect[] { effects[0] }));
+        activities.Add(new Activity(7, "Cooking", new Effect[]{ effects[0]}));
+        activities.Add(new Activity(8, "Cleaning", new Effect[] { effects[0] }));
+        activities.Add(new Activity(9, "Massage", new Effect[]{effects[0], effects [1]}));
+        
+        
     }
 
     public void PopulateEmails()
@@ -70,4 +80,6 @@ public class Manager : MonoBehaviour
         emails.Add(new Email(1)); //GoodEmail
         emails.Add(new Email(2)); //NeutralEmail
     }
+
+   
 }

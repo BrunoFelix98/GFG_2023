@@ -135,6 +135,7 @@ GameObject:
   - component: {fileID: 327959237}
   - component: {fileID: 327959238}
   - component: {fileID: 327959239}
+  - component: {fileID: 327959240}
   m_Layer: 0
   m_Name: Manager
   m_TagString: Manager
@@ -169,6 +170,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b821678fcf9a0b34f80df0f2853bbcbf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  messageTimer: 0
 --- !u!114 &327959238
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -205,7 +207,24 @@ MonoBehaviour:
     emailType: 0
   timeOfDay: 0
   emailsCompleted: 0
-  maximumNumberOfEmailsPerDay: 0
+--- !u!114 &327959240
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 327959235}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0451b478a3eab344aa1b7f979a8fb51a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  childHappinessLevel: 0
+  childEnergyLevel: 0
+  childKnowledgeLevel: 0
+  childMannersLevel: 0
+  childProgressionLevel: 0
+  eventTimer: 0
 --- !u!1 &1004931856
 GameObject:
   m_ObjectHideFlags: 0
