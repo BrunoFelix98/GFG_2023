@@ -37,7 +37,7 @@ public class RoomManager : MonoBehaviour
             Child.instance.childEnergyLevel = 100;
             Parent.instance.parentEnergyLevel = 100;
 
-            inBedroom = false;
+            tempNumber = 10;
         }
 
         if (inLivingRoom)
@@ -83,7 +83,7 @@ public class RoomManager : MonoBehaviour
                 default: break;
             }
 
-            inLivingRoom = false;
+            tempNumber = 10;
         }
 
         if (inPlayingRoom)
@@ -111,7 +111,7 @@ public class RoomManager : MonoBehaviour
                 default : break;
             }
 
-            inPlayingRoom = false;
+            tempNumber = 10;
         }
 
         if (inKitchen)
@@ -149,7 +149,7 @@ public class RoomManager : MonoBehaviour
                 default: break;
             }
 
-            inKitchen = false;
+            tempNumber = 10;
         }
 
         if (inMassageRoom)
