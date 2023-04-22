@@ -53,11 +53,11 @@ public class Manager : MonoBehaviour
 
     public void PopulateMessages()
     {
-        messages.Add(new Message(0, "New Exercise", "Today we did a new exercise with the kids to evolve their concentration", 2, null));
-        messages.Add(new Message(1, "Recycling", "Today we started teaching children to recycle", 2, null));
-        messages.Add(new Message(2, "Agression", "Your son slapped a girl because she was trying to steal his food", 0, null));
-        messages.Add(new Message(3, "Good Behaviour", "Your son has earned a Good Behaviour medal", 1, null));
-        messages.Add(new Message(4, "Bad grades", "Your son got a 'F' in History", 0, null));
+        messages.Add(new Message(0, "Ronald McDonald", "Today we did a new exercise with the kids to evolve their concentration", 2, null));
+        messages.Add(new Message(1, "Ronald McDonald", "Today we started teaching children to recycle", 2, null));
+        messages.Add(new Message(2, "Ronald McDonald", "Your son slapped a girl because she was trying to steal his food", 0, null));
+        messages.Add(new Message(3, "Ronald McDonald", "Your son has earned a Good Behaviour medal", 1, null));
+        messages.Add(new Message(4, "Ronald McDonald", "Your son got a 'F' in History", 0, null));
     }
 
     public void PopulateActivities()
