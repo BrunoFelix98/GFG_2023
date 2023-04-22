@@ -156,7 +156,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4001605915587218436, guid: f67f5049667109440b21b2209d6ffb33, type: 3}
       propertyPath: m_Name
-      value: Bar (3)
+      value: ChildrenProgressBar
+      objectReference: {fileID: 0}
+    - target: {fileID: 4001605915587218436, guid: f67f5049667109440b21b2209d6ffb33, type: 3}
+      propertyPath: m_TagString
+      value: ChildrenProgressBar
       objectReference: {fileID: 0}
     - target: {fileID: 4001605915587218437, guid: f67f5049667109440b21b2209d6ffb33, type: 3}
       propertyPath: m_Pivot.x
@@ -286,7 +290,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4001605915587218436, guid: f67f5049667109440b21b2209d6ffb33, type: 3}
       propertyPath: m_Name
-      value: Bar (2)
+      value: ChildrenKnowledgeBar
+      objectReference: {fileID: 0}
+    - target: {fileID: 4001605915587218436, guid: f67f5049667109440b21b2209d6ffb33, type: 3}
+      propertyPath: m_TagString
+      value: ChildrenKnowledgeBar
       objectReference: {fileID: 0}
     - target: {fileID: 4001605915587218437, guid: f67f5049667109440b21b2209d6ffb33, type: 3}
       propertyPath: m_Pivot.x
@@ -594,7 +602,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4001605915587218436, guid: f67f5049667109440b21b2209d6ffb33, type: 3}
       propertyPath: m_Name
-      value: Bar (5)
+      value: ParentHappinessBar
+      objectReference: {fileID: 0}
+    - target: {fileID: 4001605915587218436, guid: f67f5049667109440b21b2209d6ffb33, type: 3}
+      propertyPath: m_TagString
+      value: ParentHappinessBar
       objectReference: {fileID: 0}
     - target: {fileID: 4001605915587218437, guid: f67f5049667109440b21b2209d6ffb33, type: 3}
       propertyPath: m_Pivot.x
@@ -726,6 +738,13 @@ MonoBehaviour:
   inKitchen: 0
   inMassageRoom: 0
   tempNumber: 0
+  ChildrenEnergyBar: {fileID: 0}
+  ChildrenHappinessBar: {fileID: 0}
+  ChildrenKnowledgeBar: {fileID: 0}
+  ChildrenProgressBar: {fileID: 0}
+  ParentEnergyBar: {fileID: 0}
+  ParentHappinessBar: {fileID: 0}
+  manager: {fileID: 0}
 --- !u!4 &1392841010
 Transform:
   m_ObjectHideFlags: 0
@@ -858,7 +877,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4001605915587218436, guid: f67f5049667109440b21b2209d6ffb33, type: 3}
       propertyPath: m_Name
-      value: Bar (4)
+      value: ParentEnergyBar
+      objectReference: {fileID: 0}
+    - target: {fileID: 4001605915587218436, guid: f67f5049667109440b21b2209d6ffb33, type: 3}
+      propertyPath: m_TagString
+      value: ParentEnergyBar
       objectReference: {fileID: 0}
     - target: {fileID: 4001605915587218437, guid: f67f5049667109440b21b2209d6ffb33, type: 3}
       propertyPath: m_Pivot.x
@@ -992,7 +1015,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4001605915587218436, guid: f67f5049667109440b21b2209d6ffb33, type: 3}
       propertyPath: m_Name
-      value: Bar (1)
+      value: ChildrenHappinessBar
+      objectReference: {fileID: 0}
+    - target: {fileID: 4001605915587218436, guid: f67f5049667109440b21b2209d6ffb33, type: 3}
+      propertyPath: m_TagString
+      value: ChildrenHappinessBar
       objectReference: {fileID: 0}
     - target: {fileID: 4001605915587218437, guid: f67f5049667109440b21b2209d6ffb33, type: 3}
       propertyPath: m_Pivot.x
@@ -1167,7 +1194,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4001605915587218436, guid: f67f5049667109440b21b2209d6ffb33, type: 3}
       propertyPath: m_Name
-      value: Bar
+      value: ChildrenEnergyBar
+      objectReference: {fileID: 0}
+    - target: {fileID: 4001605915587218436, guid: f67f5049667109440b21b2209d6ffb33, type: 3}
+      propertyPath: m_TagString
+      value: ChildrenEnergyBar
       objectReference: {fileID: 0}
     - target: {fileID: 4001605915587218437, guid: f67f5049667109440b21b2209d6ffb33, type: 3}
       propertyPath: m_Pivot.x

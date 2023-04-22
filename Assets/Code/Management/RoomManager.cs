@@ -13,12 +13,20 @@ public class RoomManager : MonoBehaviour
 
     public int tempNumber;
 
-    private static Slider ChildrenEnergyBar;
-    private static Slider ChildrenHappinessBar;
-    private static Slider ChildrenKnowledgeBar;
-    private static Slider ChildrenProgressBar;
-    private static Slider ParentEnergyBar;
-    private static Slider ParentHappinessBar;
+    [SerializeField]
+    private Slider ChildrenEnergyBar;
+    [SerializeField]
+    private Slider ChildrenHappinessBar;
+    [SerializeField]
+    private Slider ChildrenKnowledgeBar;
+    [SerializeField]
+    private Slider ChildrenProgressBar;
+    [SerializeField]
+    private Slider ParentEnergyBar;
+    [SerializeField]
+    private Slider ParentHappinessBar;
+    [SerializeField]
+    private Manager manager;
 
     // Start is called before the first frame update
     void Start()
@@ -26,7 +34,22 @@ public class RoomManager : MonoBehaviour
         tempNumber = 10;
         ChildrenEnergyBar = GameObject.FindGameObjectWithTag("ChildrenEnergyBar").GetComponent<Slider>();
         ChildrenHappinessBar = GameObject.FindGameObjectWithTag("ChildrenHappinessBar").GetComponent<Slider>();
+        ChildrenKnowledgeBar = GameObject.FindGameObjectWithTag("ChildrenKnowledgeBar").GetComponent<Slider>();
+        ChildrenProgressBar = GameObject.FindGameObjectWithTag("ChildrenProgressBar").GetComponent<Slider>();
+        ParentEnergyBar = GameObject.FindGameObjectWithTag("ParentEnergyBar").GetComponent<Slider>();
+        ParentHappinessBar = GameObject.FindGameObjectWithTag("ParentHappinessBar").GetComponent<Slider>();
     }
+
+    public void getValue()
+    {
+        ChildrenEnergyBar.value = Child.instance.childEnergyLevel/ 100;
+        ChildrenHappinessBar.value = Child.instance.childHappinessLevel/ 100;
+        ChildrenKnowledgeBar.value = Child.instance.childKnowledgeLevel/ 100;
+        ChildrenProgressBar.value = Child.instance.childProgressionLevel/ 100;
+        ParentEnergyBar.value = Parent.instance.parentEnergyLevel/ 100;
+        ParentHappinessBar.value = Parent.instance.parentHappinessLevel/ 100;
+    }
+
 
     // Update is called once per frame
     void Update()
@@ -175,6 +198,7 @@ public class RoomManager : MonoBehaviour
 
             inMassageRoom = false;
         }
+        getValue();
     }
 
     public void RoomActivity()

@@ -6,6 +6,12 @@ TagManager:
   tags:
   - Manager
   - Room
+  - ChildrenEnergyBar
+  - ChildrenHappinessBar
+  - ChildrenKnowledgeBar
+  - ChildrenProgressBar
+  - ParentEnergyBar
+  - ParentHappinessBar
   layers:
   - Default
   - TransparentFX
