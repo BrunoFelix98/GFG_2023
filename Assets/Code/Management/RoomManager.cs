@@ -25,8 +25,6 @@ public class RoomManager : MonoBehaviour
     private Slider ParentEnergyBar;
     [SerializeField]
     private Slider ParentHappinessBar;
-    [SerializeField]
-    private Manager manager;
 
     // Start is called before the first frame update
     void Start()
