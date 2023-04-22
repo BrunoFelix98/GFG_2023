@@ -11,10 +11,6 @@ public class RoomManager : MonoBehaviour
     public bool inKitchen;
     public bool inMassageRoom;
 
-    public int tempNumber;
-
-<<<<<<< Updated upstream
-=======
     [SerializeField]
     private Slider ChildrenEnergyBar;
     [SerializeField]
@@ -36,15 +32,9 @@ public class RoomManager : MonoBehaviour
     {
         instance = this;
     }
-
->>>>>>> Stashed changes
     // Start is called before the first frame update
     void Start()
     {
-        tempNumber = 10;
-<<<<<<< Updated upstream
-        Manager.instance.getValue();
-=======
         ChildrenEnergyBar = GameObject.FindGameObjectWithTag("ChildrenEnergyBar").GetComponent<Slider>();
         ChildrenHappinessBar = GameObject.FindGameObjectWithTag("ChildrenHappinessBar").GetComponent<Slider>();
         ChildrenKnowledgeBar = GameObject.FindGameObjectWithTag("ChildrenKnowledgeBar").GetComponent<Slider>();
@@ -56,13 +46,6 @@ public class RoomManager : MonoBehaviour
         {
             places[i].SetActive(false);
         }
->>>>>>> Stashed changes
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        tempNumber = GameObject.FindGameObjectWithTag("Room").GetComponent<RoomNumber>().number;
     }
 
     public void DoActivity(int activityNumber)
@@ -73,8 +56,6 @@ public class RoomManager : MonoBehaviour
 
             Child.instance.childEnergyLevel = 100;
             Parent.instance.parentEnergyLevel = 100;
-
-            tempNumber = 10;
         }
 
         if (inLivingRoom)
@@ -120,8 +101,6 @@ public class RoomManager : MonoBehaviour
                     break;
                 default: break;
             }
-
-            tempNumber = 10;
         }
 
         if (inPlayingRoom)
@@ -148,8 +127,6 @@ public class RoomManager : MonoBehaviour
                     break;
                 default: break;
             }
-
-            tempNumber = 10;
         }
 
         if (inKitchen)
@@ -186,8 +163,6 @@ public class RoomManager : MonoBehaviour
                     break;
                 default: break;
             }
-
-            tempNumber = 10;
         }
 
         if (inMassageRoom)
