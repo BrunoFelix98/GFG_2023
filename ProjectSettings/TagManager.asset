@@ -6,17 +6,19 @@ TagManager:
   tags:
   - Manager
   - Room
-<<<<<<< Updated upstream
-  - ChildrenEnergyBar
-  - ChildrenHappinessBar
-  - ChildrenKnowledgeBar
-  - ChildrenProgressBar
-  - ParentEnergyBar
-  - ParentHappinessBar
-=======
   - EmailTitle
   - EmailText
->>>>>>> Stashed changes
+  - ChildrenProgressBar
+  - ChildrenKnowledgeBar
+  - ParentHappinessBar
+  - ParentEnergyBar
+  - ChildrenHappinessBar
+  - ChildrenEnergyBar
+  - LivingRoom
+  - Kitchen
+  - Bedroom
+  - PlayRoom
+  - MassageRoom
   layers:
   - Default
   - TransparentFX
