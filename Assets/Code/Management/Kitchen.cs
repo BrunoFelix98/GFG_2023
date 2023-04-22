@@ -21,5 +21,11 @@ public class Kitchen : MonoBehaviour
                 }
             }
         }
+
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            RoomManager.instance.places[1].SetActive(false);
+            RoomManager.instance.roomsController.SetActive(true);
+        }
     }
 }

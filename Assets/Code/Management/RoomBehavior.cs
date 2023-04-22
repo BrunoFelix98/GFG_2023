@@ -53,22 +53,27 @@ public class RoomBehavior : MonoBehaviour
                     case "LivingRoom":
                         RoomManager.instance.inLivingRoom = true;
                         RoomManager.instance.places[0].SetActive(true);
+                        GameObject.FindWithTag("RoomsController").SetActive(false);
                         break;
                     case "Kitchen":
                         RoomManager.instance.inKitchen = true;
                         RoomManager.instance.places[1].SetActive(true);
+                        GameObject.FindWithTag("RoomsController").SetActive(false);
                         break;
                     case "Bedroom":
                         RoomManager.instance.inBedroom = true;
                         RoomManager.instance.places[2].SetActive(true);
+                        GameObject.FindWithTag("RoomsController").SetActive(false);
                         break;
                     case "PlayRoom":
                         RoomManager.instance.inPlayingRoom = true;
                         RoomManager.instance.places[3].SetActive(true);
+                        GameObject.FindWithTag("RoomsController").SetActive(false);
                         break;
                     case "MassageRoom":
                         RoomManager.instance.inMassageRoom = true;
                         RoomManager.instance.places[4].SetActive(true);
+                        GameObject.FindWithTag("RoomsController").SetActive(false);
                         break;
                     default:
                         break;

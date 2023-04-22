@@ -21,5 +21,11 @@ public class LivingRoom : MonoBehaviour
                 }
             }
         }
+
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            RoomManager.instance.places[0].SetActive(false);
+            RoomManager.instance.roomsController.SetActive(true);
+        }
     }
 }

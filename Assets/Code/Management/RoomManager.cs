@@ -11,6 +11,8 @@ public class RoomManager : MonoBehaviour
     public bool inKitchen;
     public bool inMassageRoom;
 
+    public GameObject roomsController;
+
     [SerializeField]
     private Slider ChildrenEnergyBar;
     [SerializeField]
@@ -41,6 +43,8 @@ public class RoomManager : MonoBehaviour
         ChildrenProgressBar = GameObject.FindGameObjectWithTag("ChildrenProgressBar").GetComponent<Slider>();
         ParentEnergyBar = GameObject.FindGameObjectWithTag("ParentEnergyBar").GetComponent<Slider>();
         ParentHappinessBar = GameObject.FindGameObjectWithTag("ParentHappinessBar").GetComponent<Slider>();
+
+        roomsController = GameObject.FindGameObjectWithTag("RoomsController");
 
         for (int i = 0; i < places.Length; i++)
         {

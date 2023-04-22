@@ -18,5 +18,11 @@ public class Bedroom : MonoBehaviour
                 RoomManager.instance.DoActivity(0);
             }
         }
+
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            RoomManager.instance.places[2].SetActive(false);
+            RoomManager.instance.roomsController.SetActive(true);
+        }
     }
 }

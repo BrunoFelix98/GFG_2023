@@ -21,5 +21,11 @@ public class PlayRoom : MonoBehaviour
                 }
             }
         }
+
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            RoomManager.instance.places[3].SetActive(false);
+            RoomManager.instance.roomsController.SetActive(true);
+        }
     }
 }
