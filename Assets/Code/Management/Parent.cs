@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class Parent : MonoBehaviour
 {
@@ -9,23 +10,41 @@ public class Parent : MonoBehaviour
     public float currentEmailCompleteness;
     public Email currentEmail;
 
+    public float timeOfDay;
+
     public int emailsCompleted;
-    public int maximumNumberOfEmailsPerDay;
 
-    // Start is called before the first frame update
-    void Start()
+    public static Parent instance;
+
+    void Awake()
     {
-        currentHappinessLevel = Manager.instance.people[1].Effects[0].EffectLevel;
-        currentEnergyLevel = Manager.instance.people[1].Effects[1].EffectLevel;
-
-        GenerateNewEmail();
+        instance = this;
     }
 
     void Update()
     {
-        if (emailsCompleted < maximumNumberOfEmailsPerDay)
+        Scene scene = SceneManager.GetActiveScene();
+        if (scene.name.Equals("WorkScene"))
         {
-            Work();
+            //Handle workday stuff
+            if (timeOfDay <= 60000)
+            {
+                Work();
+                timeOfDay += Time.deltaTime;
+            }
+            else
+            {
+                timeOfDay = 0;
+                GameManager.instance.EndWorkDay();
+            }
+        }
+        else if(scene.name.Equals("HouseScene"))
+        {
+            //Handle houseday stuff
+        }
+        else
+        {
+            //Handle main menu stuff
         }
     }
 

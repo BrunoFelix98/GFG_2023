@@ -66,8 +66,8 @@ public class Manager : MonoBehaviour
 
     public void PopulateEmails()
     {
-        emails.Add(new Email(0, 0.0f)); //Bad email
-        emails.Add(new Email(1, 0.0f)); //GoodEmail
-        emails.Add(new Email(2, 0.0f)); //NeutralEmail
+        emails.Add(new Email(0)); //Bad email
+        emails.Add(new Email(1)); //GoodEmail
+        emails.Add(new Email(2)); //NeutralEmail
     }
 }
