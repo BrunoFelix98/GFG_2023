@@ -13,21 +13,56 @@ public class RoomManager : MonoBehaviour
 
     public int tempNumber;
 
+<<<<<<< Updated upstream
+=======
+    [SerializeField]
+    private Slider ChildrenEnergyBar;
+    [SerializeField]
+    private Slider ChildrenHappinessBar;
+    [SerializeField]
+    private Slider ChildrenKnowledgeBar;
+    [SerializeField]
+    private Slider ChildrenProgressBar;
+    [SerializeField]
+    private Slider ParentEnergyBar;
+    [SerializeField]
+    private Slider ParentHappinessBar;
+
+    public static RoomManager instance;
+
+    public GameObject[] places;
+
+    void Awake()
+    {
+        instance = this;
+    }
+
+>>>>>>> Stashed changes
     // Start is called before the first frame update
     void Start()
     {
         tempNumber = 10;
+<<<<<<< Updated upstream
         Manager.instance.getValue();
+=======
+        ChildrenEnergyBar = GameObject.FindGameObjectWithTag("ChildrenEnergyBar").GetComponent<Slider>();
+        ChildrenHappinessBar = GameObject.FindGameObjectWithTag("ChildrenHappinessBar").GetComponent<Slider>();
+        ChildrenKnowledgeBar = GameObject.FindGameObjectWithTag("ChildrenKnowledgeBar").GetComponent<Slider>();
+        ChildrenProgressBar = GameObject.FindGameObjectWithTag("ChildrenProgressBar").GetComponent<Slider>();
+        ParentEnergyBar = GameObject.FindGameObjectWithTag("ParentEnergyBar").GetComponent<Slider>();
+        ParentHappinessBar = GameObject.FindGameObjectWithTag("ParentHappinessBar").GetComponent<Slider>();
+
+        for (int i = 0; i < places.Length; i++)
+        {
+            places[i].SetActive(false);
+        }
+>>>>>>> Stashed changes
     }
 
     // Update is called once per frame
     void Update()
     {
-        RoomActivity();
-
         tempNumber = GameObject.FindGameObjectWithTag("Room").GetComponent<RoomNumber>().number;
-
-        DoActivity(tempNumber);
     }
 
     public void DoActivity(int activityNumber)
@@ -46,7 +81,8 @@ public class RoomManager : MonoBehaviour
         {
             print(Manager.instance.rooms[1].Activities[activityNumber].ActivityName);
 
-            switch (activityNumber) {
+            switch (activityNumber)
+            {
                 case 0: //Watch TV
                     //Increase happiness of both
                     Child.instance.childHappinessLevel += 3;
@@ -90,12 +126,12 @@ public class RoomManager : MonoBehaviour
 
         if (inPlayingRoom)
         {
-            
+
             print(Manager.instance.rooms[2].Activities[activityNumber].ActivityName);
 
-            switch(activityNumber)
+            switch (activityNumber)
             {
-                case 1: //Playing with kids
+                case 0: //Playing with kids
                     //Increase happiness of both
                     Child.instance.childHappinessLevel += 3;
                     Parent.instance.parentHappinessLevel += 3;
@@ -105,12 +141,12 @@ public class RoomManager : MonoBehaviour
                     Parent.instance.parentEnergyLevel -= 3;
 
                     break;
-                case 2: //Teaching
+                case 1: //Teaching
                     //Increase knowledge of kid
                     Child.instance.childKnowledgeLevel += 3;
 
                     break;
-                default : break;
+                default: break;
             }
 
             tempNumber = 10;
@@ -121,9 +157,9 @@ public class RoomManager : MonoBehaviour
 
             print(Manager.instance.rooms[3].Activities[activityNumber].ActivityName);
 
-            switch(activityNumber)
+            switch (activityNumber)
             {
-                case 1: //Recycling
+                case 0: //Recycling
                     //Increase knowledge of kid
                     Child.instance.childKnowledgeLevel += 3;
 
@@ -133,13 +169,13 @@ public class RoomManager : MonoBehaviour
 
                     print("Recycling");
                     break;
-                case 2: //Cooking
+                case 1: //Cooking
                     //Decrease energy of parent
                     Parent.instance.parentEnergyLevel -= 3;
 
                     print("Cooking");
                     break;
-                case 3: //Cleaning
+                case 2: //Cleaning
                     //Increase knowledge of child
                     Child.instance.childKnowledgeLevel += 3;
 
@@ -168,52 +204,5 @@ public class RoomManager : MonoBehaviour
             inMassageRoom = false;
         }
         Manager.instance.getValue();
-    }
-
-    public void RoomActivity()
-    {
-        if (inBedroom)
-        {
-            print("Bedroom Chosen");
-
-            //print(Manager.instance.rooms[0].Activities[0].ActivityName);
-        }
-
-        if (inLivingRoom)
-        {
-            print("Living room Chosen");
-
-            //for (int i = 0; i < Manager.instance.rooms[1].Activities.Length; i++)
-            //{
-            //    print(Manager.instance.rooms[1].Activities[i].ActivityName);
-            //}
-        }
-
-        if (inPlayingRoom)
-        {
-            print("Playing room Chosen");
-
-            //for (int i = 0; i < Manager.instance.rooms[2].Activities.Length; i++)
-            //{
-            //    print(Manager.instance.rooms[2].Activities[i].ActivityName);
-            //}
-        }
-
-        if (inKitchen)
-        {
-            print("Kitchen Chosen");
-
-            //for (int i = 0; i < Manager.instance.rooms[3].Activities.Length; i++)
-            //{
-            //    print(Manager.instance.rooms[3].Activities[i].ActivityName);
-            //}
-        }
-
-        if (inMassageRoom)
-        {
-            print("Massage room Chosen");
-
-            //print(Manager.instance.rooms[4].Activities[0].ActivityName);
-        }
     }
 }
