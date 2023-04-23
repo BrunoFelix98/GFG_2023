@@ -10,9 +10,11 @@ public class GameManager : MonoBehaviour
     public float messageTimer;
     public AudioSource audioSourceBackGround;
 
+    public GameObject[] objs;
+
     void Awake()
     {
-        GameObject[] objs = GameObject.FindGameObjectsWithTag("Manager");
+        objs = GameObject.FindGameObjectsWithTag("Manager");
 
         if (objs.Length > 1)
         {
@@ -44,6 +46,8 @@ public class GameManager : MonoBehaviour
             Manager.instance.UpdateSliders();
 
             Parent.instance.GenerateNewEmail();
+
+            SceneManager.UnloadSceneAsync("MainMenu");
         }
     }
 
@@ -81,6 +85,15 @@ public class GameManager : MonoBehaviour
             ResetParent();
             ResetChild();
             ResetSlides();
+        }
+        else if (scene.name.Equals("EndGameScene"))
+        {
+            ResetParent();
+            ResetChild();
+            ResetSlides();
+
+            SceneManager.LoadScene("MainMenu");
+            SceneManager.UnloadSceneAsync("EndGameScene");
         }
     }
 

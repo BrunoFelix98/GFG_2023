@@ -816,7 +816,7 @@ GameObject:
   - component: {fileID: 564812507}
   m_Layer: 0
   m_Name: Manager
-  m_TagString: Untagged
+  m_TagString: Manager
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -895,6 +895,7 @@ MonoBehaviour:
   recycling: {fileID: 21300000, guid: 4aa003c29e15ce44f8cc7335a6fac0da, type: 3}
   slap: {fileID: 21300000, guid: a43dfc4237096e64e853f2ed4eadc97b, type: 3}
   canTakePhone: 0
+  returnToMenuBtn: {fileID: 0}
 --- !u!114 &564812510
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -909,6 +910,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   messageTimer: 0
   audioSourceBackGround: {fileID: 733378778}
+  objs: []
 --- !u!4 &564812511
 Transform:
   m_ObjectHideFlags: 0

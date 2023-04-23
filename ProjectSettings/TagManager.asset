@@ -23,6 +23,7 @@ TagManager:
   - MessageIMG
   - MessageTitle
   - MessageDesc
+  - backToMenuBtn
   layers:
   - Default
   - TransparentFX

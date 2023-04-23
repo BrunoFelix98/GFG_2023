@@ -1,5 +1,9 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
+using UnityEditor.PackageManager;
+using UnityEditor;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
@@ -36,6 +40,8 @@ public class Manager : MonoBehaviour
 
     public bool canTakePhone = false;
 
+    public Button returnToMenuBtn;
+
     void Awake()
     {
         PopulateEffects();
@@ -59,6 +65,19 @@ public class Manager : MonoBehaviour
     {
         UpdateSliders();
         UpdateValues();
+
+        Scene scene = SceneManager.GetActiveScene();
+        if (scene.name.Equals("EndGameScene"))
+        {
+            if (returnToMenuBtn == null)
+            {
+                returnToMenuBtn = GameObject.FindGameObjectWithTag("backToMenuBtn").GetComponent<Button>();
+            }
+            else
+            {
+                returnToMenuBtn.onClick.AddListener(GameManager.instance.BackToMenu);
+            }
+        }
     }
 
     public void PopulateEffects()
@@ -68,13 +87,11 @@ public class Manager : MonoBehaviour
         effects.Add(new Effect(2, "Knowledge", 0.0f));
         effects.Add(new Effect(3, "Progression", 0.0f));
     }
-
     public void PopulatePeople()
     {
         people.Add(new Person(0, new Effect[] { effects[0], effects[1] })); //Parent
         people.Add(new Person(1, effects.ToArray())); //Child
     }
-
     public void PopulateMessages()
     {
         messages.Add(new Message(0, "Ronald McDonald", "Today we did a new exercise with the kids to evolve their concentration", 2, exercise));
