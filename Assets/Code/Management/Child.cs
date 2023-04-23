@@ -103,6 +103,9 @@ public class Child : MonoBehaviour
         {
             SendNeutralMessage();
         }
+
+        SendGoodMessage(true);
+
     }
 
     public void SendGoodMessage(bool progMsg)
@@ -142,12 +145,10 @@ public class Child : MonoBehaviour
         }
         else
         {
-            //Generate a normal good message
+            msgIMG = Manager.instance.messages[3].MsgImage;
+            msgTitle = Manager.instance.messages[3].Title;
+            msgDesc = Manager.instance.messages[3].Description;
         }
-        
-        msgIMG = Manager.instance.messages[3].MsgImage;
-        msgTitle = Manager.instance.messages[3].Title;
-        msgDesc = Manager.instance.messages[3].Description;
 
         childHappinessLevel += 10;
         childEnergyLevel--;

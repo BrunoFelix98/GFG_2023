@@ -85,11 +85,20 @@ public class GameManager : MonoBehaviour
 
         if (scene.name.Equals("HouseScene"))
         {
-            SceneManager.LoadScene("WorkScene");
-            SceneManager.UnloadSceneAsync("HouseScene");
-
             Child.instance.childProgressionLevel = (Child.instance.childProgressionLevel + Child.instance.childKnowledgeLevel + 3);
-            ResetSlides();
+
+            if (Child.instance.childProgressionLevel > 99)
+            {
+                GameEnded();
+            }
+            else
+            {
+                SceneManager.LoadScene("WorkScene");
+                SceneManager.UnloadSceneAsync("HouseScene");
+
+                ResetSlides();
+            }
+            
         }
     }
 
@@ -120,9 +129,9 @@ public class GameManager : MonoBehaviour
 
     public void GameEnded()
     {
+        SceneManager.LoadScene("EndGameScene");
         ResetParent();
         ResetChild();
         ResetSlides();
-        SceneManager.LoadScene("EndGameScene");
     }
 }
