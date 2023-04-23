@@ -13,7 +13,7 @@ public class PhoneController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+        phone.SetActive(false);
     }
 
     // Update is called once per frame
