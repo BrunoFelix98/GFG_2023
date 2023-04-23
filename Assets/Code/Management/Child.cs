@@ -13,14 +13,13 @@ public class Child : MonoBehaviour
     public float childProgressionLevel;
 
     public float eventTimer;
+    public GameObject animation;
 
     public static Child instance;
 
     public Sprite msgIMG;
     public string msgTitle;
     public string msgDesc;
-
-    public AudioSource phoneSourceNotif;
 
 
     void Awake()
@@ -31,12 +30,19 @@ public class Child : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        phoneSourceNotif = Manager.instance.gameObject.transform.GetChild(5).GetComponent<AudioSource>();
+        
     }
 
     // Update is called once per frame
     void Update()
     {
+        if(SceneManager.GetActiveScene().name.Equals("WorkScene")) { 
+            if(animation == null)
+            {
+                animation = GameObject.FindGameObjectWithTag("animation");
+                animation.SetActive(false);
+            }
+        }
         if (childHappinessLevel >= 100)
         {
             childHappinessLevel = 100;
@@ -67,6 +73,7 @@ public class Child : MonoBehaviour
             {
                 GenerateRandomEvent();
                 Manager.instance.canTakePhone = true;
+                animation.SetActive(true);
                 eventTimer = 0;
             }
         }
@@ -74,8 +81,6 @@ public class Child : MonoBehaviour
 
     public void GenerateRandomEvent()
     {
-        phoneSourceNotif.Play();
-
         int rand = 0;
 
         if (childHappinessLevel >= 70) //If the child is very happy they might be able to generate a playful event
