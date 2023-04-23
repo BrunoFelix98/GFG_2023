@@ -34,6 +34,7 @@ public class PhoneController : MonoBehaviour
             GameObject.FindGameObjectWithTag("MessageIMG").GetComponent<Image>().sprite = Child.instance.msgIMG;
             GameObject.FindGameObjectWithTag("MessageTitle").GetComponent<TextMeshProUGUI>().text = Child.instance.msgTitle;
             GameObject.FindGameObjectWithTag("MessageDesc").GetComponent<TextMeshProUGUI>().text = Child.instance.msgDesc;
+            Child.instance.animation.SetActive(false);
         }
     }
 

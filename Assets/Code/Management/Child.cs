@@ -13,6 +13,7 @@ public class Child : MonoBehaviour
     public float childProgressionLevel;
 
     public float eventTimer;
+    public GameObject animation;
 
     public static Child instance;
 
@@ -29,12 +30,19 @@ public class Child : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-
+        
     }
 
     // Update is called once per frame
     void Update()
     {
+        if(SceneManager.GetActiveScene().name.Equals("WorkScene")) { 
+            if(animation == null)
+            {
+                animation = GameObject.FindGameObjectWithTag("animation");
+                animation.SetActive(false);
+            }
+        }
         if (childHappinessLevel >= 100)
         {
             childHappinessLevel = 100;
@@ -65,6 +73,7 @@ public class Child : MonoBehaviour
             {
                 GenerateRandomEvent();
                 Manager.instance.canTakePhone = true;
+                animation.SetActive(true);
                 eventTimer = 0;
             }
         }

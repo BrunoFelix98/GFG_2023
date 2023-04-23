@@ -24,6 +24,7 @@ TagManager:
   - MessageTitle
   - MessageDesc
   - backToMenuBtn
+  - animation
   layers:
   - Default
   - TransparentFX
