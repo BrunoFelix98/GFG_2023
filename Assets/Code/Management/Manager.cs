@@ -160,32 +160,32 @@ public class Manager : MonoBehaviour
     {
         if (ChildrenEnergyBar)
         {
-            ChildrenEnergyBar.value = Child.instance.childEnergyLevel / 100;
+            ChildrenEnergyBar.value = Child.instance.childEnergyLevel;
         }
 
         if (ChildrenHappinessBar)
         {
-            ChildrenHappinessBar.value = Child.instance.childHappinessLevel / 100;
+            ChildrenHappinessBar.value = Child.instance.childHappinessLevel;
         }
 
         if (ChildrenKnowledgeBar)
         {
-            ChildrenKnowledgeBar.value = Child.instance.childKnowledgeLevel / 100;
+            ChildrenKnowledgeBar.value = Child.instance.childKnowledgeLevel;
         }
 
         if (ChildrenProgressBar)
         {
-            ChildrenProgressBar.value = Child.instance.childProgressionLevel / 100;
+            ChildrenProgressBar.value = Child.instance.childProgressionLevel;
         }
 
         if (ParentEnergyBar)
         {
-            ParentEnergyBar.value = Parent.instance.parentEnergyLevel / 100;
+            ParentEnergyBar.value = Parent.instance.parentEnergyLevel;
         }
 
         if (ParentHappinessBar)
         {
-            ParentHappinessBar.value = Parent.instance.parentHappinessLevel / 100;
+            ParentHappinessBar.value = Parent.instance.parentHappinessLevel;
         }
     }
 }
