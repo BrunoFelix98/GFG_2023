@@ -97,7 +97,7 @@ public class Parent : MonoBehaviour
 
     public void Work()
     {
-        if (parentEnergyLevel >= 3)
+        if (parentEnergyLevel >= 30)
         {
             if (currentEmailCompleteness <= 99)
             {

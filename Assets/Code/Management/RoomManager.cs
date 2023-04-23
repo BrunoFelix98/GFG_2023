@@ -69,38 +69,46 @@ public class RoomManager : MonoBehaviour
             switch (activityNumber)
             {
                 case 0: //Watch TV
-                    //Increase happiness of both
-                    Child.instance.childHappinessLevel += 3;
-                    Parent.instance.parentHappinessLevel += 3;
+                    if(Parent.instance.parentEnergyLevel >= 15 && Child.instance.childEnergyLevel >= 15)
+                    {
+                        // Increase happiness of both
+                        Child.instance.childHappinessLevel += 3;
+                        Parent.instance.parentHappinessLevel += 3;
 
-                    //Decrease energy of both
-                    Child.instance.childEnergyLevel -= 3;
-                    Parent.instance.parentEnergyLevel -= 3;
+                        //Decrease energy of both
+                        Child.instance.childEnergyLevel -= 15;
+                        Parent.instance.parentEnergyLevel -= 15;
+                    }
                     break;
                 case 1: //Socializing
-                    //Increase happiness of both
-                    Child.instance.childHappinessLevel += 3;
-                    Parent.instance.parentHappinessLevel += 3;
+                    if(Parent.instance.parentEnergyLevel >= 15 && Child.instance.childEnergyLevel >= 15)
+                    {
+                        //Increase happiness of both
+                        Child.instance.childHappinessLevel += 3;
+                        Parent.instance.parentHappinessLevel += 3;
 
-                    //Decrease energy of both
-                    Child.instance.childEnergyLevel -= 3;
-                    Parent.instance.parentEnergyLevel -= 3;
+                        //Decrease energy of both
+                        Child.instance.childEnergyLevel -= 15;
+                        Parent.instance.parentEnergyLevel -= 15;
+                    }
                     break;
                 case 2: //Rest with kids
                     //Increase happiness of both
-                    Child.instance.childHappinessLevel += 3;
-                    Parent.instance.parentHappinessLevel += 3;
+                    Child.instance.childHappinessLevel += 5;
+                    Parent.instance.parentHappinessLevel += 5;
 
                     //Increase energy of both
-                    Child.instance.childEnergyLevel += 3;
-                    Parent.instance.parentEnergyLevel += 3;
+                    Child.instance.childEnergyLevel = 80;
+                    Parent.instance.parentEnergyLevel = 100;
+                    GameManager.instance.EndDay();
                     break;
                 case 3: //Resting
                     //Increase happiness of parent
                     Parent.instance.parentHappinessLevel += 3;
 
                     //Increase energy of parent
-                    Parent.instance.parentEnergyLevel += 3;
+                    Parent.instance.parentEnergyLevel = 100;
+                    GameManager.instance.EndDay();
                     break;
                 default: break;
             }
@@ -108,24 +116,31 @@ public class RoomManager : MonoBehaviour
 
         if (inPlayingRoom)
         {
-
             print(Manager.instance.rooms[2].Activities[activityNumber].ActivityName);
 
             switch (activityNumber)
             {
                 case 0: //Playing with kids
-                    //Increase happiness of both
-                    Child.instance.childHappinessLevel += 3;
-                    Parent.instance.parentHappinessLevel += 3;
+                    if(Parent.instance.parentEnergyLevel >= 15 && Child.instance.childEnergyLevel >= 15)
+                    {
+                        //Increase happiness of both
+                        Child.instance.childHappinessLevel += 3;
+                        Parent.instance.parentHappinessLevel += 3;
 
-                    //Decrease energy of both
-                    Child.instance.childEnergyLevel -= 3;
-                    Parent.instance.parentEnergyLevel -= 3;
-
+                        //Decrease energy of both
+                        Child.instance.childEnergyLevel -= 15;
+                        Parent.instance.parentEnergyLevel -= 15;
+                    }
                     break;
                 case 1: //Teaching
-                    //Increase knowledge of kid
-                    Child.instance.childKnowledgeLevel += 3;
+                    if(Parent.instance.parentEnergyLevel >= 15 && Child.instance.childEnergyLevel >= 15)
+                    {
+                        //Increase knowledge of kid
+                        Child.instance.childKnowledgeLevel += 3;
+                        //Decrease energy of both
+                        Parent.instance.parentEnergyLevel -= 15;
+                        Child.instance.childEnergyLevel -= 15;
+                    }
 
                     break;
                 default: break;
@@ -140,29 +155,35 @@ public class RoomManager : MonoBehaviour
             switch (activityNumber)
             {
                 case 0: //Recycling
-                    //Increase knowledge of kid
-                    Child.instance.childKnowledgeLevel += 3;
+                    if(Parent.instance.parentEnergyLevel >= 15 && Child.instance.childEnergyLevel >= 15)
+                    {
+                        //Increase knowledge of kid
+                        Child.instance.childKnowledgeLevel += 3;
 
-                    //Decrease energy of both
-                    Child.instance.childEnergyLevel -= 3;
-                    Parent.instance.parentEnergyLevel -= 3;
-
-                    print("Recycling");
+                        //Decrease energy of both
+                        Child.instance.childEnergyLevel -= 15;
+                        Parent.instance.parentEnergyLevel -= 15;
+                    }
                     break;
                 case 1: //Cooking
-                    //Decrease energy of parent
-                    Parent.instance.parentEnergyLevel -= 3;
-
-                    print("Cooking");
+                    if(Parent.instance.parentEnergyLevel >= 15)
+                    {
+                        //Decrease energy of parent
+                        Parent.instance.parentEnergyLevel -= 15;
+                        //Increase child happiness
+                        Child.instance.childHappinessLevel += 5;
+                    }
                     break;
                 case 2: //Cleaning
-                    //Increase knowledge of child
-                    Child.instance.childKnowledgeLevel += 3;
+                    if(Parent.instance.parentEnergyLevel >= 15 && Child.instance.childEnergyLevel >= 15)
+                    {
+                        //Increase knowledge of child
+                        Child.instance.childKnowledgeLevel += 3;
 
-                    //Decrease energy of both
-                    Child.instance.childEnergyLevel -= 3;
-                    Parent.instance.parentEnergyLevel -= 3;
-
+                        //Decrease energy of both
+                        Child.instance.childEnergyLevel -= 15;
+                        Parent.instance.parentEnergyLevel -= 15;
+                    }
                     break;
                 default: break;
             }
@@ -172,14 +193,10 @@ public class RoomManager : MonoBehaviour
         {
             print(Manager.instance.rooms[4].Activities[activityNumber].ActivityName);
 
-            //Increase happiness of both
-            Child.instance.childHappinessLevel += 3;
+            //Increase happiness of parent
             Parent.instance.parentHappinessLevel += 3;
-            //Increase energy of both
-            Child.instance.childEnergyLevel += 3;
-            Parent.instance.parentEnergyLevel += 3;
-
-            inMassageRoom = false;
+            //Increase energy of parent
+            Parent.instance.parentEnergyLevel += 20;
         }
 
         Manager.instance.UpdateValues();
