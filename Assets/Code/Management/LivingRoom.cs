@@ -5,6 +5,7 @@ using UnityEngine;
 public class LivingRoom : MonoBehaviour
 {
     public RectTransform[] children;
+    public AudioSource audioSourceTv;
 
     // Update is called once per frame
     void Update()
@@ -28,6 +29,7 @@ public class LivingRoom : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.Escape))
         {
+            audioSourceTv.Play();
             RoomManager.instance.places[0].SetActive(false);
             RoomManager.instance.roomsController.SetActive(true);
         }

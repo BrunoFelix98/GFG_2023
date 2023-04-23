@@ -10,6 +10,10 @@ public class Parent : MonoBehaviour
     public float parentEnergyLevel;
     public float currentEmailCompleteness;
     public Email currentEmail;
+    
+    public AudioSource audioSourceTecla;
+    public AudioSource audioSourceEmail;
+    public AudioSource audioSourceBadEmail;
 
     public float timeOfDay;
 
@@ -101,6 +105,7 @@ public class Parent : MonoBehaviour
 
                 if (Input.anyKeyDown)
                 {
+                    audioSourceTecla.Play();
                     currentEmailCompleteness += 5;
                     RectTransform emailTxtTransform = emailTxt.GetComponent<RectTransform>();
                     emailTxt.transform.position = new Vector3(emailTxt.transform.position.x + (15.5f / 2), emailTxt.transform.position.y, emailTxt.transform.position.z);
@@ -115,7 +120,6 @@ public class Parent : MonoBehaviour
                 RectTransform emailTxtTransform = emailTxt.GetComponent<RectTransform>();
                 emailTxt.transform.position = new Vector3(emailTxt.transform.position.x - 155, emailTxt.transform.position.y, emailTxt.transform.position.z);
                 emailTxtTransform.sizeDelta = new Vector2(0, emailTxtTransform.sizeDelta.y);
-                Manager.instance.getValue();
                 GenerateNewEmail();
             }
         }
@@ -124,12 +128,14 @@ public class Parent : MonoBehaviour
     //Generate a new email
     public void GenerateNewEmail()
     {
+
         if (parentEnergyLevel >= 70) //If the parent currently has a lot of energy, they have a 20% chance of recieving a bad email
         {
             int rand = Random.Range(0, 100);
 
             if (rand <= 19)
             {
+                audioSourceBadEmail.Play();
                 currentEmail = Manager.instance.emails[0];
             }
             else
@@ -143,6 +149,7 @@ public class Parent : MonoBehaviour
 
             if (rand <= 19)
             {
+                audioSourceEmail.Play();
                 currentEmail = Manager.instance.emails[1];
             }
             else
