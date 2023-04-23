@@ -6,11 +6,13 @@ using UnityEngine.UI;
 using TMPro;
 
 
+
 public class PhoneController : MonoBehaviour
 
 {
     [SerializeField]
     private GameObject phone;
+
 
     // Start is called before the first frame update
     void Start()

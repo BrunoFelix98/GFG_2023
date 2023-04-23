@@ -15,6 +15,9 @@ public class RoomManager : MonoBehaviour
 
     public AudioSource audioSourceCozinha;
     public AudioSource audioSourceTv;
+    public AudioSource audioSourceSleeping;
+    public AudioSource audioSourceMassage;
+
 
     [SerializeField]
     private Slider ChildrenEnergyBar;
@@ -53,8 +56,6 @@ public class RoomManager : MonoBehaviour
         {
             places[i].SetActive(false);
         }
-
-        //audioSourceCozinha = FindGameObjectWithTag("KitchenAudio").GetComponent<AudioSource>();
         audioSourceTv = Manager.instance.gameObject.transform.GetChild(4).GetComponent<AudioSource>();
     }
 
@@ -62,6 +63,8 @@ public class RoomManager : MonoBehaviour
     {
         if (inBedroom)
         {
+            audioSourceSleeping.Play();
+            
             print(Manager.instance.rooms[0].Activities[activityNumber].ActivityName);
 
             Child.instance.childEnergyLevel = 100;
@@ -72,13 +75,14 @@ public class RoomManager : MonoBehaviour
 
         if (inLivingRoom)
         {   
+
             print(Manager.instance.rooms[1].Activities[activityNumber].ActivityName);
 
             switch (activityNumber)
             {
                 case 0: //Watch TV
                     if(Parent.instance.parentEnergyLevel >= 15 && Child.instance.childEnergyLevel >= 15)
-                    {
+                    {  
                         audioSourceTv.Play();
 
                         // Increase happiness of both
@@ -140,7 +144,9 @@ public class RoomManager : MonoBehaviour
             {
                 case 0: //Playing with kids
                     if(Parent.instance.parentEnergyLevel >= 15 && Child.instance.childEnergyLevel >= 15)
-                    {
+                    { 
+                        audioSourceTv.Play();
+                        
                         //Increase happiness of both
                         Child.instance.childHappinessLevel += 3;
                         Parent.instance.parentHappinessLevel += 3;
@@ -220,6 +226,7 @@ public class RoomManager : MonoBehaviour
 
         if (inMassageRoom)
         {
+            audioSourceMassage.Play();
             print(Manager.instance.rooms[4].Activities[activityNumber].ActivityName);
 
             //Increase happiness of parent
