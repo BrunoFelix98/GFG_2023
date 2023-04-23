@@ -5,7 +5,6 @@ using UnityEngine;
 public class Kitchen : MonoBehaviour
 {
     public RectTransform[] children;
-    public AudioSource audioSourceCozinha;
 
     // Update is called once per frame
     void Update()
@@ -25,7 +24,6 @@ public class Kitchen : MonoBehaviour
    
         if (Input.GetKeyDown(KeyCode.Escape))
         {
-            audioSourceCozinha.Play();
             RoomManager.instance.places[1].SetActive(false);
             RoomManager.instance.roomsController.SetActive(true);
         }

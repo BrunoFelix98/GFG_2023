@@ -13,6 +13,9 @@ public class RoomManager : MonoBehaviour
 
     public GameObject roomsController;
 
+    public AudioSource audioSourceCozinha;
+    public AudioSource audioSourceTv;
+
     [SerializeField]
     private Slider ChildrenEnergyBar;
     [SerializeField]
@@ -50,6 +53,9 @@ public class RoomManager : MonoBehaviour
         {
             places[i].SetActive(false);
         }
+
+        //audioSourceCozinha = FindGameObjectWithTag("KitchenAudio").GetComponent<AudioSource>();
+        audioSourceTv = Manager.instance.gameObject.transform.GetChild(4).GetComponent<AudioSource>();
     }
 
     public void DoActivity(int activityNumber)
@@ -73,6 +79,8 @@ public class RoomManager : MonoBehaviour
                 case 0: //Watch TV
                     if(Parent.instance.parentEnergyLevel >= 15 && Child.instance.childEnergyLevel >= 15)
                     {
+                        audioSourceTv.Play();
+
                         // Increase happiness of both
                         Child.instance.childHappinessLevel += 3;
                         Parent.instance.parentHappinessLevel += 3;
@@ -163,6 +171,8 @@ public class RoomManager : MonoBehaviour
 
         if (inKitchen)
         {
+            audioSourceCozinha.Play();
+
             print(Manager.instance.rooms[3].Activities[activityNumber].ActivityName);
 
             switch (activityNumber)
