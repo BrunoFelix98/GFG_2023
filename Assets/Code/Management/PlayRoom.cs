@@ -5,7 +5,6 @@ using UnityEngine;
 public class PlayRoom : MonoBehaviour
 {
     public RectTransform[] children;
-    public AudioSource audioSourceTornado;
 
     // Update is called once per frame
     void Update()
@@ -25,7 +24,6 @@ public class PlayRoom : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.Escape))
         {
-            audioSourceTornado.Play();
             RoomManager.instance.places[3].SetActive(false);
             RoomManager.instance.roomsController.SetActive(true);
         }

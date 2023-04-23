@@ -74,7 +74,7 @@ public class RoomManager : MonoBehaviour
         }
 
         if (inLivingRoom)
-        {   
+        {   audioSourceTv.Play();
 
             print(Manager.instance.rooms[1].Activities[activityNumber].ActivityName);
 
@@ -83,8 +83,6 @@ public class RoomManager : MonoBehaviour
                 case 0: //Watch TV
                     if(Parent.instance.parentEnergyLevel >= 15 && Child.instance.childEnergyLevel >= 15)
                     {  
-                        audioSourceTv.Play();
-
                         // Increase happiness of both
                         Child.instance.childHappinessLevel += 3;
                         Parent.instance.parentHappinessLevel += 3;
@@ -145,7 +143,7 @@ public class RoomManager : MonoBehaviour
                 case 0: //Playing with kids
                     if(Parent.instance.parentEnergyLevel >= 15 && Child.instance.childEnergyLevel >= 15)
                     { 
-                        audioSourceTv.Play();
+                        
                         
                         //Increase happiness of both
                         Child.instance.childHappinessLevel += 3;
