@@ -17,6 +17,11 @@ public class RoomManager : MonoBehaviour
     public AudioSource audioSourceTv;
     public AudioSource audioSourceSleeping;
     public AudioSource audioSourceMassage;
+    public AudioSource audioSourceCleaning;
+    public AudioSource audioSourceRecycling;
+    public AudioSource audioSourceTeaching;
+    public AudioSource audioSourcePlayWKids;
+    public AudioSource audioSourceSocialising;
 
 
     [SerializeField]
@@ -60,6 +65,11 @@ public class RoomManager : MonoBehaviour
         audioSourceTv = Manager.instance.gameObject.transform.GetChild(7).GetComponent<AudioSource>();
         audioSourceMassage = Manager.instance.gameObject.transform.GetChild(6).GetComponent<AudioSource>();
 
+        audioSourceCleaning = Manager.instance.gameObject.transform.GetChild(6).GetComponent<AudioSource>();
+        audioSourceRecycling = Manager.instance.gameObject.transform.GetChild(6).GetComponent<AudioSource>();
+        audioSourceTeaching = Manager.instance.gameObject.transform.GetChild(6).GetComponent<AudioSource>();
+        audioSourcePlayWKids = Manager.instance.gameObject.transform.GetChild(6).GetComponent<AudioSource>();
+        audioSourceSocialising = Manager.instance.gameObject.transform.GetChild(6).GetComponent<AudioSource>();
         audioSourceCozinha = Manager.instance.gameObject.transform.GetChild(4).GetComponent<AudioSource>();
     }
 
@@ -78,8 +88,7 @@ public class RoomManager : MonoBehaviour
         }
 
         if (inLivingRoom)
-        {   
-
+        {
             print(Manager.instance.rooms[1].Activities[activityNumber].ActivityName);
 
             switch (activityNumber)
@@ -182,8 +191,6 @@ public class RoomManager : MonoBehaviour
 
         if (inKitchen)
         {
-            
-
             print(Manager.instance.rooms[3].Activities[activityNumber].ActivityName);
 
             switch (activityNumber)

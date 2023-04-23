@@ -20,6 +20,8 @@ public class Child : MonoBehaviour
     public string msgTitle;
     public string msgDesc;
 
+    public AudioSource phoneSourceNotif;
+
 
     void Awake()
     {
@@ -29,7 +31,7 @@ public class Child : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-
+        phoneSourceNotif = Manager.instance.gameObject.transform.GetChild(5).GetComponent<AudioSource>();
     }
 
     // Update is called once per frame
@@ -72,6 +74,8 @@ public class Child : MonoBehaviour
 
     public void GenerateRandomEvent()
     {
+        phoneSourceNotif.Play();
+
         int rand = 0;
 
         if (childHappinessLevel >= 70) //If the child is very happy they might be able to generate a playful event
