@@ -20,6 +20,9 @@ TagManager:
   - PlayRoom
   - MassageRoom
   - RoomsController
+  - MessageIMG
+  - MessageTitle
+  - MessageDesc
   layers:
   - Default
   - TransparentFX

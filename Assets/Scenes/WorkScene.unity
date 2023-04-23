@@ -283,10 +283,10 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1797522032}
-        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
-        m_MethodName: SetActive
-        m_Mode: 6
+      - m_Target: {fileID: 1797522036}
+        m_TargetAssemblyTypeName: PhoneController, Assembly-CSharp
+        m_MethodName: active
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -493,10 +493,10 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1797522032}
-        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
-        m_MethodName: SetActive
-        m_Mode: 6
+      - m_Target: {fileID: 1797522036}
+        m_TargetAssemblyTypeName: PhoneController, Assembly-CSharp
+        m_MethodName: unactive
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -741,6 +741,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1797522033}
     m_Modifications:
+    - target: {fileID: 847964107888318486, guid: 20a7b5075f4b5ac4583b737eae3dcfc6, type: 3}
+      propertyPath: m_TagString
+      value: MessageIMG
+      objectReference: {fileID: 0}
     - target: {fileID: 1505425925593313993, guid: 20a7b5075f4b5ac4583b737eae3dcfc6, type: 3}
       propertyPath: m_Name
       value: Message
@@ -829,9 +833,17 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2408594705503549877, guid: 20a7b5075f4b5ac4583b737eae3dcfc6, type: 3}
+      propertyPath: m_TagString
+      value: MessageDesc
+      objectReference: {fileID: 0}
     - target: {fileID: 4067387791596714067, guid: 20a7b5075f4b5ac4583b737eae3dcfc6, type: 3}
       propertyPath: m_Enabled
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5938853968296256764, guid: 20a7b5075f4b5ac4583b737eae3dcfc6, type: 3}
+      propertyPath: m_TagString
+      value: MessageTitle
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 20a7b5075f4b5ac4583b737eae3dcfc6, type: 3}
@@ -1446,13 +1458,14 @@ GameObject:
   - component: {fileID: 1797522033}
   - component: {fileID: 1797522035}
   - component: {fileID: 1797522034}
+  - component: {fileID: 1797522036}
   m_Layer: 5
   m_Name: Phone
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1797522033
 RectTransform:
   m_ObjectHideFlags: 0
@@ -1514,6 +1527,19 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1797522032}
   m_CullTransparentMesh: 1
+--- !u!114 &1797522036
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1797522032}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f1ae81cfcc4c2b04fb1e04be8d0ca9a5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  phone: {fileID: 1797522032}
 --- !u!1 &1820035071
 GameObject:
   m_ObjectHideFlags: 0

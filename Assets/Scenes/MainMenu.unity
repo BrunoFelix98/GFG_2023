@@ -188,6 +188,18 @@ MonoBehaviour:
   activities: []
   messages: []
   emails: []
+  rooms: []
+  ChildrenEnergyBar: {fileID: 0}
+  ChildrenHappinessBar: {fileID: 0}
+  ChildrenKnowledgeBar: {fileID: 0}
+  ChildrenProgressBar: {fileID: 0}
+  ParentEnergyBar: {fileID: 0}
+  ParentHappinessBar: {fileID: 0}
+  badGrades: {fileID: 21300000, guid: 66ec5d19bebe6674ea6dccf88b4c5175, type: 3}
+  exercise: {fileID: 21300000, guid: 0736c060c61b1d446ae41af898b11a9d, type: 3}
+  goodBehaviour: {fileID: 21300000, guid: e099c0869d3fbb24ba4c6fcdc8f807c2, type: 3}
+  recycling: {fileID: 21300000, guid: 4aa003c29e15ce44f8cc7335a6fac0da, type: 3}
+  slap: {fileID: 21300000, guid: a43dfc4237096e64e853f2ed4eadc97b, type: 3}
 --- !u!114 &327959239
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -200,13 +212,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c0ffe01e328094a4fa8d016f86cec55a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  currentHappinessLevel: 0
-  currentEnergyLevel: 0
+  parentHappinessLevel: 0
+  parentEnergyLevel: 0
   currentEmailCompleteness: 0
   currentEmail:
     emailType: 0
   timeOfDay: 0
   emailsCompleted: 0
+  emailTitle: {fileID: 0}
+  emailTxt: {fileID: 0}
 --- !u!114 &327959240
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -222,7 +236,6 @@ MonoBehaviour:
   childHappinessLevel: 0
   childEnergyLevel: 0
   childKnowledgeLevel: 0
-  childMannersLevel: 0
   childProgressionLevel: 0
   eventTimer: 0
 --- !u!1 &1004931856

@@ -1,7 +1,9 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class Child : MonoBehaviour
 {
@@ -14,6 +16,11 @@ public class Child : MonoBehaviour
 
     public static Child instance;
 
+    public Sprite msgIMG;
+    public string msgTitle;
+    public string msgDesc;
+
+
     void Awake()
     {
         instance = this;
@@ -22,7 +29,7 @@ public class Child : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+
     }
 
     // Update is called once per frame
@@ -57,6 +64,7 @@ public class Child : MonoBehaviour
             else
             {
                 GenerateRandomEvent();
+                Manager.instance.canTakePhone = true;
                 eventTimer = 0;
             }
         }
@@ -136,6 +144,10 @@ public class Child : MonoBehaviour
         {
             //Generate a normal good message
         }
+        
+        msgIMG = Manager.instance.messages[3].MsgImage;
+        msgTitle = Manager.instance.messages[3].Title;
+        msgDesc = Manager.instance.messages[3].Description;
 
         childHappinessLevel += 10;
         childEnergyLevel--;
@@ -143,6 +155,21 @@ public class Child : MonoBehaviour
 
     public void SendBadMessage()
     {
+        int rand = 0;
+        rand = Random.Range(0, 100);
+
+        if (rand <= 50)
+        {
+            GameObject.FindGameObjectWithTag("MessageIMG").GetComponent<Image>().sprite = Manager.instance.messages[2].MsgImage;
+            GameObject.FindGameObjectWithTag("MessageTitle").GetComponent<TextMeshPro>().text = Manager.instance.messages[2].Title;
+            GameObject.FindGameObjectWithTag("MessageDesc").GetComponent<TextMeshPro>().text = Manager.instance.messages[2].Description;
+        }
+        else
+        {
+            GameObject.FindGameObjectWithTag("MessageIMG").GetComponent<Image>().sprite = Manager.instance.messages[4].MsgImage;
+            GameObject.FindGameObjectWithTag("MessageTitle").GetComponent<TextMeshPro>().text = Manager.instance.messages[4].Title;
+            GameObject.FindGameObjectWithTag("MessageDesc").GetComponent<TextMeshPro>().text = Manager.instance.messages[4].Description;
+        }
         //Generate UI for this message, when the parent opens the phone, it will take away happiness from them
         childHappinessLevel -= 10;
         childEnergyLevel--;
@@ -150,6 +177,21 @@ public class Child : MonoBehaviour
 
     public void SendNeutralMessage()
     {
+        int rand = 0;
+        rand = Random.Range(0, 100);
+
+        if (rand <= 50)
+        {
+            GameObject.FindGameObjectWithTag("MessageIMG").GetComponent<Image>().sprite = Manager.instance.messages[0].MsgImage;
+            GameObject.FindGameObjectWithTag("MessageTitle").GetComponent<TextMeshPro>().text = Manager.instance.messages[0].Title;
+            GameObject.FindGameObjectWithTag("MessageDesc").GetComponent<TextMeshPro>().text = Manager.instance.messages[0].Description;
+        }
+        else
+        {
+            GameObject.FindGameObjectWithTag("MessageIMG").GetComponent<Image>().sprite = Manager.instance.messages[1].MsgImage;
+            GameObject.FindGameObjectWithTag("MessageTitle").GetComponent<TextMeshPro>().text = Manager.instance.messages[1].Title;
+            GameObject.FindGameObjectWithTag("MessageDesc").GetComponent<TextMeshPro>().text = Manager.instance.messages[1].Description;
+        }
         //Generate UI for this message, when the parent opens the phone, it will not affect the parent
         childEnergyLevel--;
     }

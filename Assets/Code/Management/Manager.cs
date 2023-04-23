@@ -27,6 +27,14 @@ public class Manager : MonoBehaviour
     [SerializeField]
     public Slider ParentHappinessBar;
 
+    public Sprite badGrades;
+    public Sprite exercise;
+    public Sprite goodBehaviour;
+    public Sprite recycling;
+    public Sprite slap;
+
+    public bool canTakePhone = false;
+
     void Awake()
     {
         PopulateEffects();
@@ -76,11 +84,11 @@ public class Manager : MonoBehaviour
 
     public void PopulateMessages()
     {
-        messages.Add(new Message(0, "Ronald McDonald", "Today we did a new exercise with the kids to evolve their concentration", 2, null));
-        messages.Add(new Message(1, "Ronald McDonald", "Today we started teaching children to recycle", 2, null));
-        messages.Add(new Message(2, "Ronald McDonald", "Your son slapped a girl because she was trying to steal his food", 0, null));
-        messages.Add(new Message(3, "Ronald McDonald", "Your son has earned a Good Behaviour medal", 1, null));
-        messages.Add(new Message(4, "Ronald McDonald", "Your son got a 'F' in History", 0, null));
+        messages.Add(new Message(0, "Ronald McDonald", "Today we did a new exercise with the kids to evolve their concentration", 2, exercise));
+        messages.Add(new Message(1, "Ronald McDonald", "Today we started teaching children to recycle", 2, recycling));
+        messages.Add(new Message(2, "Ronald McDonald", "Your son slapped a girl because she was trying to steal his food", 0, slap));
+        messages.Add(new Message(3, "Ronald McDonald", "Your son has earned a Good Behaviour medal", 1, goodBehaviour));
+        messages.Add(new Message(4, "Ronald McDonald", "Your son got a 'F' in History", 0, badGrades));
     }
 
     public void PopulateActivities()
