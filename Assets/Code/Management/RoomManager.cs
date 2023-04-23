@@ -61,16 +61,16 @@ public class RoomManager : MonoBehaviour
         {
             places[i].SetActive(false);
         }
-        audioSourceSleeping = Manager.instance.gameObject.transform.GetChild(4).GetComponent<AudioSource>();
+        audioSourceSleeping = Manager.instance.gameObject.transform.GetChild(5).GetComponent<AudioSource>();
         audioSourceTv = Manager.instance.gameObject.transform.GetChild(7).GetComponent<AudioSource>();
         audioSourceMassage = Manager.instance.gameObject.transform.GetChild(6).GetComponent<AudioSource>();
 
-        audioSourceCleaning = Manager.instance.gameObject.transform.GetChild(6).GetComponent<AudioSource>();
-        audioSourceRecycling = Manager.instance.gameObject.transform.GetChild(6).GetComponent<AudioSource>();
-        audioSourceTeaching = Manager.instance.gameObject.transform.GetChild(6).GetComponent<AudioSource>();
-        audioSourcePlayWKids = Manager.instance.gameObject.transform.GetChild(6).GetComponent<AudioSource>();
-        audioSourceSocialising = Manager.instance.gameObject.transform.GetChild(6).GetComponent<AudioSource>();
-        audioSourceCozinha = Manager.instance.gameObject.transform.GetChild(4).GetComponent<AudioSource>();
+        audioSourceCleaning = Manager.instance.gameObject.transform.GetChild(8).GetComponent<AudioSource>();
+        audioSourceRecycling = Manager.instance.gameObject.transform.GetChild(9).GetComponent<AudioSource>();
+        audioSourceTeaching = Manager.instance.gameObject.transform.GetChild(10).GetComponent<AudioSource>();
+        audioSourcePlayWKids = Manager.instance.gameObject.transform.GetChild(11).GetComponent<AudioSource>();
+        audioSourceSocialising = Manager.instance.gameObject.transform.GetChild(12).GetComponent<AudioSource>();
+        audioSourceCozinha = Manager.instance.gameObject.transform.GetChild(13).GetComponent<AudioSource>();
     }
 
     public void DoActivity(int activityNumber)
@@ -110,7 +110,8 @@ public class RoomManager : MonoBehaviour
                     break;
                 case 1: //Socializing
                     if(Parent.instance.parentEnergyLevel >= 15 && Child.instance.childEnergyLevel >= 15)
-                    {
+                    {   
+                        audioSourceSocialising.PLay();
                         //Increase happiness of both
                         Child.instance.childHappinessLevel += 3;
                         Parent.instance.parentHappinessLevel += 3;
@@ -161,6 +162,7 @@ public class RoomManager : MonoBehaviour
                 case 0: //Playing with kids
                     if(Parent.instance.parentEnergyLevel >= 15 && Child.instance.childEnergyLevel >= 15)
                     {
+                        audioSourcePlayWKids.Play();
                         //Increase happiness of both
                         Child.instance.childHappinessLevel += 3;
                         Parent.instance.parentHappinessLevel += 3;
@@ -175,6 +177,7 @@ public class RoomManager : MonoBehaviour
                 case 1: //Teaching
                     if(Parent.instance.parentEnergyLevel >= 15 && Child.instance.childEnergyLevel >= 15)
                     {
+                        audioSourceTeaching.Play();
                         //Increase knowledge of kid
                         Child.instance.childKnowledgeLevel += 3;
                         //Decrease energy of both
@@ -198,6 +201,7 @@ public class RoomManager : MonoBehaviour
                 case 0: //Recycling
                     if(Parent.instance.parentEnergyLevel >= 15 && Child.instance.childEnergyLevel >= 15)
                     {
+                        audioSourceRecycling.Play();
                         //Increase knowledge of kid
                         Child.instance.childKnowledgeLevel += 3;
 
@@ -223,6 +227,7 @@ public class RoomManager : MonoBehaviour
                 case 2: //Cleaning
                     if(Parent.instance.parentEnergyLevel >= 15 && Child.instance.childEnergyLevel >= 15)
                     {
+                        audioSourceCleaning.Play();
                         //Increase knowledge of child
                         Child.instance.childKnowledgeLevel += 3;
 
