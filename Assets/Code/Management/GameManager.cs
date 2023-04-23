@@ -41,6 +41,8 @@ public class GameManager : MonoBehaviour
             Child.instance.childHappinessLevel = Manager.instance.people[1].Effects[0].EffectLevel / 2;
             Child.instance.childEnergyLevel = Manager.instance.people[1].Effects[1].EffectLevel / 2;
 
+            Manager.instance.UpdateSliders();
+
             Parent.instance.GenerateNewEmail();
         }
     }
@@ -54,6 +56,7 @@ public class GameManager : MonoBehaviour
             SceneManager.LoadScene("HouseScene");
             SceneManager.UnloadSceneAsync("WorkScene");
             ResetSlides();
+            Manager.instance.UpdateSliders();
         }
     }
 
@@ -97,8 +100,8 @@ public class GameManager : MonoBehaviour
             {
                 SceneManager.LoadScene("WorkScene");
                 SceneManager.UnloadSceneAsync("HouseScene");
-
                 ResetSlides();
+                Manager.instance.UpdateSliders();
             }
             
         }

@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class Manager : MonoBehaviour
@@ -50,22 +51,14 @@ public class Manager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        getValue();
+        UpdateValues();
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (ParentEnergyBar == null || ParentHappinessBar == null)
-        {
-            ParentEnergyBar = GameObject.FindGameObjectWithTag("ParentEnergyBar").GetComponent<Slider>();
-            ParentHappinessBar = GameObject.FindGameObjectWithTag("ParentHappinessBar").GetComponent<Slider>();
-            ChildrenEnergyBar = GameObject.FindGameObjectWithTag("ChildrenEnergyBar").GetComponent<Slider>();
-            ChildrenHappinessBar = GameObject.FindGameObjectWithTag("ChildrenHappinessBar").GetComponent<Slider>();
-            ChildrenKnowledgeBar = GameObject.FindGameObjectWithTag("ChildrenKnowledgeBar").GetComponent<Slider>();
-            ChildrenProgressBar = GameObject.FindGameObjectWithTag("ChildrenProgressBar").GetComponent<Slider>();
-            getValue();
-        }
+        UpdateSliders();
+        UpdateValues();
     }
 
     public void PopulateEffects()
@@ -124,19 +117,75 @@ public class Manager : MonoBehaviour
 
     }
 
-    public void getValue()
+    public void UpdateSliders()
+    {
+        if (SceneManager.GetActiveScene().name.Equals("WorkScene") || SceneManager.GetActiveScene().name.Equals("HouseScene"))
+        {
+            if (ParentEnergyBar == null)
+            {
+                ParentEnergyBar = GameObject.FindGameObjectWithTag("ParentEnergyBar").GetComponent<Slider>();
+            }
+
+            if (ParentHappinessBar == null)
+            {
+                ParentHappinessBar = GameObject.FindGameObjectWithTag("ParentHappinessBar").GetComponent<Slider>();
+            }
+        }
+
+        if (SceneManager.GetActiveScene().name.Equals("HouseScene"))
+        {
+            if (ChildrenEnergyBar == null)
+            {
+                ChildrenEnergyBar = GameObject.FindGameObjectWithTag("ChildrenEnergyBar").GetComponent<Slider>();
+            }
+
+            if (ChildrenHappinessBar == null)
+            {
+                ChildrenHappinessBar = GameObject.FindGameObjectWithTag("ChildrenHappinessBar").GetComponent<Slider>();
+            }
+
+            if (ChildrenKnowledgeBar == null)
+            {
+                ChildrenKnowledgeBar = GameObject.FindGameObjectWithTag("ChildrenKnowledgeBar").GetComponent<Slider>();
+            }
+
+            if (ChildrenProgressBar == null)
+            {
+                ChildrenProgressBar = GameObject.FindGameObjectWithTag("ChildrenProgressBar").GetComponent<Slider>();
+            }
+        }
+    }
+
+    public void UpdateValues()
     {
         if (ChildrenEnergyBar)
-        { ChildrenEnergyBar.value = Child.instance.childEnergyLevel / 100; }
+        {
+            ChildrenEnergyBar.value = Child.instance.childEnergyLevel / 100;
+        }
+
         if (ChildrenHappinessBar)
-        { ChildrenHappinessBar.value = Child.instance.childHappinessLevel / 100; }
+        {
+            ChildrenHappinessBar.value = Child.instance.childHappinessLevel / 100;
+        }
+
         if (ChildrenKnowledgeBar)
-        { ChildrenKnowledgeBar.value = Child.instance.childKnowledgeLevel / 100; }
+        {
+            ChildrenKnowledgeBar.value = Child.instance.childKnowledgeLevel / 100;
+        }
+
         if (ChildrenProgressBar)
-        { ChildrenProgressBar.value = Child.instance.childProgressionLevel / 100;}
+        {
+            ChildrenProgressBar.value = Child.instance.childProgressionLevel / 100;
+        }
+
         if (ParentEnergyBar)
-        { ParentEnergyBar.value = Parent.instance.parentEnergyLevel / 100;}
+        {
+            ParentEnergyBar.value = Parent.instance.parentEnergyLevel / 100;
+        }
+
         if (ParentHappinessBar)
-        { ParentHappinessBar.value = Parent.instance.parentHappinessLevel / 100;}
+        {
+            ParentHappinessBar.value = Parent.instance.parentHappinessLevel / 100;
+        }
     }
 }

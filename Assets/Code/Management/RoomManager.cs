@@ -181,6 +181,7 @@ public class RoomManager : MonoBehaviour
 
             inMassageRoom = false;
         }
-        Manager.instance.getValue();
+
+        Manager.instance.UpdateValues();
     }
 }

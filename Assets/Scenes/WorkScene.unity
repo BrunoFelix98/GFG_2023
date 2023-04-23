@@ -904,7 +904,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8080f33cea1e7f145832891324917d4d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  currentTime: 
   hour: 0
   minute: 0
 --- !u!114 &1071296009
