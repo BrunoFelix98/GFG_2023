@@ -56,7 +56,11 @@ public class RoomManager : MonoBehaviour
         {
             places[i].SetActive(false);
         }
-        audioSourceTv = Manager.instance.gameObject.transform.GetChild(4).GetComponent<AudioSource>();
+        audioSourceSleeping = Manager.instance.gameObject.transform.GetChild(4).GetComponent<AudioSource>();
+        audioSourceTv = Manager.instance.gameObject.transform.GetChild(7).GetComponent<AudioSource>();
+        audioSourceMassage = Manager.instance.gameObject.transform.GetChild(6).GetComponent<AudioSource>();
+
+        audioSourceCozinha = Manager.instance.gameObject.transform.GetChild(4).GetComponent<AudioSource>();
     }
 
     public void DoActivity(int activityNumber)
@@ -74,7 +78,7 @@ public class RoomManager : MonoBehaviour
         }
 
         if (inLivingRoom)
-        {   audioSourceTv.Play();
+        {   
 
             print(Manager.instance.rooms[1].Activities[activityNumber].ActivityName);
 
@@ -82,7 +86,8 @@ public class RoomManager : MonoBehaviour
             {
                 case 0: //Watch TV
                     if(Parent.instance.parentEnergyLevel >= 15 && Child.instance.childEnergyLevel >= 15)
-                    {  
+                    {
+                        audioSourceTv.Play();
                         // Increase happiness of both
                         Child.instance.childHappinessLevel += 3;
                         Parent.instance.parentHappinessLevel += 3;
@@ -109,6 +114,8 @@ public class RoomManager : MonoBehaviour
                     }
                     break;
                 case 2: //Rest with kids
+
+                    audioSourceSleeping.Play();
                     //Increase happiness of both
                     Child.instance.childHappinessLevel += 5;
                     Parent.instance.parentHappinessLevel += 5;
@@ -121,6 +128,8 @@ public class RoomManager : MonoBehaviour
                     GameManager.instance.EndDay();
                     break;
                 case 3: //Resting
+
+                    audioSourceSleeping.Play();
                     //Increase happiness of parent
                     Parent.instance.parentHappinessLevel += 3;
 
@@ -142,9 +151,7 @@ public class RoomManager : MonoBehaviour
             {
                 case 0: //Playing with kids
                     if(Parent.instance.parentEnergyLevel >= 15 && Child.instance.childEnergyLevel >= 15)
-                    { 
-                        
-                        
+                    {
                         //Increase happiness of both
                         Child.instance.childHappinessLevel += 3;
                         Parent.instance.parentHappinessLevel += 3;
@@ -175,7 +182,7 @@ public class RoomManager : MonoBehaviour
 
         if (inKitchen)
         {
-            audioSourceCozinha.Play();
+            
 
             print(Manager.instance.rooms[3].Activities[activityNumber].ActivityName);
 
@@ -197,6 +204,7 @@ public class RoomManager : MonoBehaviour
                 case 1: //Cooking
                     if(Parent.instance.parentEnergyLevel >= 15)
                     {
+                        audioSourceCozinha.Play();
                         //Decrease energy of parent
                         Parent.instance.parentEnergyLevel -= 15;
                         //Increase child happiness
