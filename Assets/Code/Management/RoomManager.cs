@@ -111,7 +111,7 @@ public class RoomManager : MonoBehaviour
                 case 1: //Socializing
                     if(Parent.instance.parentEnergyLevel >= 15 && Child.instance.childEnergyLevel >= 15)
                     {   
-                        audioSourceSocialising.PLay();
+                        audioSourceSocialising.Play();
                         //Increase happiness of both
                         Child.instance.childHappinessLevel += 3;
                         Parent.instance.parentHappinessLevel += 3;
@@ -179,7 +179,7 @@ public class RoomManager : MonoBehaviour
                     {
                         audioSourceTeaching.Play();
                         //Increase knowledge of kid
-                        Child.instance.childKnowledgeLevel += 3;
+                        Child.instance.childKnowledgeLevel += 2;
                         //Decrease energy of both
                         Parent.instance.parentEnergyLevel -= 15;
                         Child.instance.childEnergyLevel -= 15;
