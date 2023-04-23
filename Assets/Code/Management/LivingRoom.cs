@@ -18,6 +18,10 @@ public class LivingRoom : MonoBehaviour
                 if (Input.GetMouseButtonDown(0))
                 {
                     RoomManager.instance.DoActivity(i);
+                    if (i >= 2)
+                    {
+                        GameManager.instance.EndDay();
+                    }
                 }
             }
         }

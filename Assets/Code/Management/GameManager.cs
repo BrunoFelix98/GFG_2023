@@ -120,6 +120,9 @@ public class GameManager : MonoBehaviour
 
     public void GameEnded()
     {
-        //Handle the end of the game when the progression bar reaches 100
+        ResetParent();
+        ResetChild();
+        ResetSlides();
+        SceneManager.LoadScene("EndGameScene");
     }
 }

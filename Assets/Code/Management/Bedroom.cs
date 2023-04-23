@@ -16,6 +16,7 @@ public class Bedroom : MonoBehaviour
             if (Input.GetMouseButtonDown(0))
             {
                 RoomManager.instance.DoActivity(0);
+                GameManager.instance.EndDay();
             }
         }
 

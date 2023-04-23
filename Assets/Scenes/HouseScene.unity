@@ -154,6 +154,22 @@ PrefabInstance:
       propertyPath: m_AnchorMax.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4001605915068269479, guid: f67f5049667109440b21b2209d6ffb33, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: -82.9728
+      objectReference: {fileID: 0}
+    - target: {fileID: 4001605915068269479, guid: f67f5049667109440b21b2209d6ffb33, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: -27.3013
+      objectReference: {fileID: 0}
+    - target: {fileID: 4001605915068269479, guid: f67f5049667109440b21b2209d6ffb33, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: -32.641327
+      objectReference: {fileID: 0}
+    - target: {fileID: 4001605915068269479, guid: f67f5049667109440b21b2209d6ffb33, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -1.9146996
+      objectReference: {fileID: 0}
     - target: {fileID: 4001605915587218436, guid: f67f5049667109440b21b2209d6ffb33, type: 3}
       propertyPath: m_Name
       value: ChildrenProgressBar
@@ -569,6 +585,22 @@ PrefabInstance:
     - target: {fileID: 4001605915068269479, guid: f67f5049667109440b21b2209d6ffb33, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4001605915068269479, guid: f67f5049667109440b21b2209d6ffb33, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: -81.3987
+      objectReference: {fileID: 0}
+    - target: {fileID: 4001605915068269479, guid: f67f5049667109440b21b2209d6ffb33, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: -32.0691
+      objectReference: {fileID: 0}
+    - target: {fileID: 4001605915068269479, guid: f67f5049667109440b21b2209d6ffb33, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: -32.4478
+      objectReference: {fileID: 0}
+    - target: {fileID: 4001605915068269479, guid: f67f5049667109440b21b2209d6ffb33, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -3.2915
       objectReference: {fileID: 0}
     - target: {fileID: 4001605915587218436, guid: f67f5049667109440b21b2209d6ffb33, type: 3}
       propertyPath: m_Name
@@ -2593,6 +2625,22 @@ PrefabInstance:
       propertyPath: m_AnchorMax.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4001605915068269479, guid: f67f5049667109440b21b2209d6ffb33, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: -82.8618
+      objectReference: {fileID: 0}
+    - target: {fileID: 4001605915068269479, guid: f67f5049667109440b21b2209d6ffb33, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: -29.8748
+      objectReference: {fileID: 0}
+    - target: {fileID: 4001605915068269479, guid: f67f5049667109440b21b2209d6ffb33, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: -33.179108
+      objectReference: {fileID: 0}
+    - target: {fileID: 4001605915068269479, guid: f67f5049667109440b21b2209d6ffb33, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4001605915587218436, guid: f67f5049667109440b21b2209d6ffb33, type: 3}
       propertyPath: m_Name
       value: ChildrenHappinessBar
@@ -3300,6 +3348,22 @@ PrefabInstance:
     - target: {fileID: 4001605915068269479, guid: f67f5049667109440b21b2209d6ffb33, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4001605915068269479, guid: f67f5049667109440b21b2209d6ffb33, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: -87.9818
+      objectReference: {fileID: 0}
+    - target: {fileID: 4001605915068269479, guid: f67f5049667109440b21b2209d6ffb33, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: -36.4579
+      objectReference: {fileID: 0}
+    - target: {fileID: 4001605915068269479, guid: f67f5049667109440b21b2209d6ffb33, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: -33.544983
+      objectReference: {fileID: 0}
+    - target: {fileID: 4001605915068269479, guid: f67f5049667109440b21b2209d6ffb33, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 1.0970993
       objectReference: {fileID: 0}
     - target: {fileID: 4001605915587218436, guid: f67f5049667109440b21b2209d6ffb33, type: 3}
       propertyPath: m_Name
