@@ -8,6 +8,7 @@ public class GameManager : MonoBehaviour
     public static GameManager instance;
 
     public float messageTimer;
+    public AudioSource audioSourceBackGround;
 
     void Awake()
     {
@@ -25,6 +26,7 @@ public class GameManager : MonoBehaviour
 
     public void Play()
     {
+        audioSourceBackGround.Play();
         Scene scene = SceneManager.GetActiveScene();
 
         if (scene.name.Equals("MainMenu"))

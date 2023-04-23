@@ -63,7 +63,7 @@ public class RoomManager : MonoBehaviour
         }
 
         if (inLivingRoom)
-        {
+        {   
             print(Manager.instance.rooms[1].Activities[activityNumber].ActivityName);
 
             switch (activityNumber)
@@ -101,7 +101,6 @@ public class RoomManager : MonoBehaviour
 
                     //Increase energy of parent
                     Parent.instance.parentEnergyLevel += 3;
-
                     break;
                 default: break;
             }
