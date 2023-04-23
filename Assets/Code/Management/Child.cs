@@ -86,9 +86,7 @@ public class Child : MonoBehaviour
             {
                 SendNeutralMessage();
             }
-        }
-        
-        if (childHappinessLevel <= 30) //If the child is very unhappy they might be able to generate a sad event
+        }else if (childHappinessLevel <= 30) //If the child is very unhappy they might be able to generate a sad event
         {
             rand = Random.Range(0, 100);
 
@@ -101,8 +99,10 @@ public class Child : MonoBehaviour
                 SendNeutralMessage();
             }
         }
-
-        SendGoodMessage(true);
+        else
+        {
+            SendNeutralMessage();
+        }
     }
 
     public void SendGoodMessage(bool progMsg)
@@ -160,15 +160,15 @@ public class Child : MonoBehaviour
 
         if (rand <= 50)
         {
-            GameObject.FindGameObjectWithTag("MessageIMG").GetComponent<Image>().sprite = Manager.instance.messages[2].MsgImage;
-            GameObject.FindGameObjectWithTag("MessageTitle").GetComponent<TextMeshPro>().text = Manager.instance.messages[2].Title;
-            GameObject.FindGameObjectWithTag("MessageDesc").GetComponent<TextMeshPro>().text = Manager.instance.messages[2].Description;
+            msgIMG = Manager.instance.messages[2].MsgImage;
+            msgTitle = Manager.instance.messages[2].Title;
+            msgDesc = Manager.instance.messages[2].Description;
         }
         else
         {
-            GameObject.FindGameObjectWithTag("MessageIMG").GetComponent<Image>().sprite = Manager.instance.messages[4].MsgImage;
-            GameObject.FindGameObjectWithTag("MessageTitle").GetComponent<TextMeshPro>().text = Manager.instance.messages[4].Title;
-            GameObject.FindGameObjectWithTag("MessageDesc").GetComponent<TextMeshPro>().text = Manager.instance.messages[4].Description;
+            msgIMG = Manager.instance.messages[4].MsgImage;
+            msgTitle = Manager.instance.messages[4].Title;
+            msgDesc = Manager.instance.messages[4].Description;
         }
         //Generate UI for this message, when the parent opens the phone, it will take away happiness from them
         childHappinessLevel -= 10;
@@ -182,15 +182,15 @@ public class Child : MonoBehaviour
 
         if (rand <= 50)
         {
-            GameObject.FindGameObjectWithTag("MessageIMG").GetComponent<Image>().sprite = Manager.instance.messages[0].MsgImage;
-            GameObject.FindGameObjectWithTag("MessageTitle").GetComponent<TextMeshPro>().text = Manager.instance.messages[0].Title;
-            GameObject.FindGameObjectWithTag("MessageDesc").GetComponent<TextMeshPro>().text = Manager.instance.messages[0].Description;
+            msgIMG = Manager.instance.messages[0].MsgImage;
+            msgTitle = Manager.instance.messages[0].Title;
+            msgDesc = Manager.instance.messages[0].Description;
         }
         else
         {
-            GameObject.FindGameObjectWithTag("MessageIMG").GetComponent<Image>().sprite = Manager.instance.messages[1].MsgImage;
-            GameObject.FindGameObjectWithTag("MessageTitle").GetComponent<TextMeshPro>().text = Manager.instance.messages[1].Title;
-            GameObject.FindGameObjectWithTag("MessageDesc").GetComponent<TextMeshPro>().text = Manager.instance.messages[1].Description;
+            msgIMG = Manager.instance.messages[1].MsgImage;
+            msgTitle = Manager.instance.messages[1].Title;
+            msgDesc = Manager.instance.messages[1].Description;
         }
         //Generate UI for this message, when the parent opens the phone, it will not affect the parent
         childEnergyLevel--;
