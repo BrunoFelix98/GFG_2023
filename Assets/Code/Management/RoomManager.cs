@@ -60,6 +60,8 @@ public class RoomManager : MonoBehaviour
 
             Child.instance.childEnergyLevel = 100;
             Parent.instance.parentEnergyLevel = 100;
+
+            Manager.instance.UpdateValues();
         }
 
         if (inLivingRoom)
@@ -78,6 +80,8 @@ public class RoomManager : MonoBehaviour
                         //Decrease energy of both
                         Child.instance.childEnergyLevel -= 15;
                         Parent.instance.parentEnergyLevel -= 15;
+
+                        Manager.instance.UpdateValues();
                     }
                     break;
                 case 1: //Socializing
@@ -90,6 +94,8 @@ public class RoomManager : MonoBehaviour
                         //Decrease energy of both
                         Child.instance.childEnergyLevel -= 15;
                         Parent.instance.parentEnergyLevel -= 15;
+
+                        Manager.instance.UpdateValues();
                     }
                     break;
                 case 2: //Rest with kids
@@ -100,6 +106,8 @@ public class RoomManager : MonoBehaviour
                     //Increase energy of both
                     Child.instance.childEnergyLevel = 80;
                     Parent.instance.parentEnergyLevel = 100;
+
+                    Manager.instance.UpdateValues();
                     GameManager.instance.EndDay();
                     break;
                 case 3: //Resting
@@ -108,6 +116,8 @@ public class RoomManager : MonoBehaviour
 
                     //Increase energy of parent
                     Parent.instance.parentEnergyLevel = 100;
+
+                    Manager.instance.UpdateValues();
                     GameManager.instance.EndDay();
                     break;
                 default: break;
@@ -130,6 +140,8 @@ public class RoomManager : MonoBehaviour
                         //Decrease energy of both
                         Child.instance.childEnergyLevel -= 15;
                         Parent.instance.parentEnergyLevel -= 15;
+
+                        Manager.instance.UpdateValues();
                     }
                     break;
                 case 1: //Teaching
@@ -140,6 +152,8 @@ public class RoomManager : MonoBehaviour
                         //Decrease energy of both
                         Parent.instance.parentEnergyLevel -= 15;
                         Child.instance.childEnergyLevel -= 15;
+
+                        Manager.instance.UpdateValues();
                     }
 
                     break;
@@ -149,7 +163,6 @@ public class RoomManager : MonoBehaviour
 
         if (inKitchen)
         {
-
             print(Manager.instance.rooms[3].Activities[activityNumber].ActivityName);
 
             switch (activityNumber)
@@ -163,6 +176,8 @@ public class RoomManager : MonoBehaviour
                         //Decrease energy of both
                         Child.instance.childEnergyLevel -= 15;
                         Parent.instance.parentEnergyLevel -= 15;
+
+                        Manager.instance.UpdateValues();
                     }
                     break;
                 case 1: //Cooking
@@ -172,6 +187,8 @@ public class RoomManager : MonoBehaviour
                         Parent.instance.parentEnergyLevel -= 15;
                         //Increase child happiness
                         Child.instance.childHappinessLevel += 5;
+
+                        Manager.instance.UpdateValues();
                     }
                     break;
                 case 2: //Cleaning
@@ -183,6 +200,8 @@ public class RoomManager : MonoBehaviour
                         //Decrease energy of both
                         Child.instance.childEnergyLevel -= 15;
                         Parent.instance.parentEnergyLevel -= 15;
+
+                        Manager.instance.UpdateValues();
                     }
                     break;
                 default: break;
@@ -197,8 +216,8 @@ public class RoomManager : MonoBehaviour
             Parent.instance.parentHappinessLevel += 3;
             //Increase energy of parent
             Parent.instance.parentEnergyLevel += 20;
-        }
 
-        Manager.instance.UpdateValues();
+            Manager.instance.UpdateValues();
+        }
     }
 }
